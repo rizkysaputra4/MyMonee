@@ -11,10 +11,9 @@ class DreamViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         // Do any additional setup after loading the view.
     }
-
 
     /*
     // MARK: - Navigation
