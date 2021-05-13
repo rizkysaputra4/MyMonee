@@ -42,7 +42,14 @@
 		FA97548D264C25E00014374F /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97547A264C25E00014374F /* Poppins-SemiBold.ttf */; };
 		FA97548E264C25E00014374F /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97547B264C25E00014374F /* Poppins-Italic.ttf */; };
 		FA97548F264C25E00014374F /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97547C264C25E00014374F /* Poppins-MediumItalic.ttf */; };
-		FA975494264C27D40014374F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA975493264C27D40014374F /* UserData.swift */; };
+		FA975494264C27D40014374F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA975493264C27D40014374F /* User.swift */; };
+		FAE59E5C264CFE790002C18E /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E5A264CFE790002C18E /* TransactionTableViewCell.swift */; };
+		FAE59E5D264CFE790002C18E /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE59E5B264CFE790002C18E /* TransactionTableViewCell.xib */; };
+		FAE59E6F264D03690002C18E /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E6D264D03690002C18E /* TransactionViewController.swift */; };
+		FAE59E70264D03690002C18E /* TransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE59E6E264D03690002C18E /* TransactionViewController.xib */; };
+		FAE59E73264D13110002C18E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E72264D13110002C18E /* Transaction.swift */; };
+		FAE59E76264D13430002C18E /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E75264D13430002C18E /* Dream.swift */; };
+		FAE59E7C264D154B0002C18E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E7B264D154B0002C18E /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +90,14 @@
 		FA97547A264C25E00014374F /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		FA97547B264C25E00014374F /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		FA97547C264C25E00014374F /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		FA975493264C27D40014374F /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		FA975493264C27D40014374F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FAE59E5A264CFE790002C18E /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		FAE59E5B264CFE790002C18E /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		FAE59E6D264D03690002C18E /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		FAE59E6E264D03690002C18E /* TransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionViewController.xib; sourceTree = "<group>"; };
+		FAE59E72264D13110002C18E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		FAE59E75264D13430002C18E /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
+		FAE59E7B264D154B0002C18E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +158,10 @@
 		FA3C295B264B82B700F83AD5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FA975493264C27D40014374F /* UserData.swift */,
+				FA975493264C27D40014374F /* User.swift */,
+				FAE59E72264D13110002C18E /* Transaction.swift */,
+				FAE59E75264D13430002C18E /* Dream.swift */,
+				FAE59E7B264D154B0002C18E /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +169,8 @@
 		FA3C295D264B82CE00F83AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAE59E5F264D02A00002C18E /* TransactionTable */,
+				FAE59E59264CFE480002C18E /* TransactionCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +256,24 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		FAE59E59264CFE480002C18E /* TransactionCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAE59E5A264CFE790002C18E /* TransactionTableViewCell.swift */,
+				FAE59E5B264CFE790002C18E /* TransactionTableViewCell.xib */,
+			);
+			path = TransactionCell;
+			sourceTree = "<group>";
+		};
+		FAE59E5F264D02A00002C18E /* TransactionTable */ = {
+			isa = PBXGroup;
+			children = (
+				FAE59E6D264D03690002C18E /* TransactionViewController.swift */,
+				FAE59E6E264D03690002C18E /* TransactionViewController.xib */,
+			);
+			path = TransactionTable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,6 +345,7 @@
 				FA3C2967264B8DD600F83AD5 /* .gitignore in Resources */,
 				FA975481264C25E00014374F /* Poppins-Light.ttf in Resources */,
 				FA975488264C25E00014374F /* Poppins-Regular.ttf in Resources */,
+				FAE59E5D264CFE790002C18E /* TransactionTableViewCell.xib in Resources */,
 				FA3C2963264B8A2500F83AD5 /* .swiftlint.yml in Resources */,
 				FA975487264C25E00014374F /* OFL.txt in Resources */,
 				FA975485264C25E00014374F /* Poppins-ExtraBold.ttf in Resources */,
@@ -317,6 +355,7 @@
 				FA97548D264C25E00014374F /* Poppins-SemiBold.ttf in Resources */,
 				FA3C2953264B829E00F83AD5 /* LaunchScreen.storyboard in Resources */,
 				FA3C2950264B829E00F83AD5 /* Preview Assets.xcassets in Resources */,
+				FAE59E70264D03690002C18E /* TransactionViewController.xib in Resources */,
 				FA3C296E264B94CD00F83AD5 /* TabBarViewController.xib in Resources */,
 				FA3C2982264B96A300F83AD5 /* HomeViewController.xib in Resources */,
 				FA975486264C25E00014374F /* Poppins-BlackItalic.ttf in Resources */,
@@ -353,13 +392,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE59E7C264D154B0002C18E /* UserData.swift in Sources */,
 				FA3C2981264B96A300F83AD5 /* HomeViewController.swift in Sources */,
 				FA3C296D264B94CD00F83AD5 /* TabBarViewController.swift in Sources */,
-				FA975494264C27D40014374F /* UserData.swift in Sources */,
+				FA975494264C27D40014374F /* User.swift in Sources */,
 				FA3C2947264B829D00F83AD5 /* AppDelegate.swift in Sources */,
 				FA3C2949264B829D00F83AD5 /* SceneDelegate.swift in Sources */,
+				FAE59E6F264D03690002C18E /* TransactionViewController.swift in Sources */,
+				FAE59E73264D13110002C18E /* Transaction.swift in Sources */,
 				FA3C298C264B999600F83AD5 /* ProfileViewController.swift in Sources */,
 				FA3C2987264B998900F83AD5 /* DreamViewController.swift in Sources */,
+				FAE59E5C264CFE790002C18E /* TransactionTableViewCell.swift in Sources */,
+				FAE59E76264D13430002C18E /* Dream.swift in Sources */,
 				FA3C294B264B829D00F83AD5 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

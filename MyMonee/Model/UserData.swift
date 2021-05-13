@@ -2,32 +2,18 @@
 //  UserData.swift
 //  MyMonee
 //
-//  Created by Rizky Saputra on 12/05/21.
+//  Created by Rizky Saputra on 13/05/21.
 //
 
 import Foundation
 
-class User {
-    
-    var name: String
-    var balance: Double
-    
-    init(name: String, balance: Double) {
-        self.name = name
-        self.balance = balance
-    }
-    
-    func currencyFormat() -> String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.decimalSeparator = ","
-        currencyFormatter.groupingSeparator = "."
-        currencyFormatter.groupingSize = 3
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.maximumFractionDigits = 2
-        
-        return currencyFormatter.string(from: NSNumber(value: self.balance))!
-    }
-}
+var user = User(name: "Rizky Saputra", balance: 5000000)
 
-var user = User(name: "Rizky Saputra", balance: 1000000)
+var transaction = [
+    Transaction(description: "gaji", date: "2020-01-01", total: 30000, type: .income),
+    Transaction(description: "beli mouse", date: "2021-02-01", total: 5000, type: .outcome)
+]
+
+// var dream = [
+//
+// ]
