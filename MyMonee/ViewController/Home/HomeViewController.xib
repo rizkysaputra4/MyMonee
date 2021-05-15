@@ -35,7 +35,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufg-zg-syC">
-                            <rect key="frame" x="0.0" y="8" width="375" height="264"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="264"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8VG-HC-iwO">
                                     <rect key="frame" x="16" y="10" width="343" height="60"/>
@@ -60,9 +60,12 @@
                                                 <constraint firstAttribute="width" constant="36" id="R3s-Bd-aBe"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="add_new"/>
+                                            <connections>
+                                                <action selector="newTransaction:" destination="-1" eventType="touchUpInside" id="Oza-Pj-Xug"/>
+                                            </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
                                     <constraints>
                                         <constraint firstItem="bgF-Ze-BfJ" firstAttribute="top" secondItem="XtL-Mf-LTQ" secondAttribute="top" id="47d-Ro-w8F"/>
                                         <constraint firstItem="XtL-Mf-LTQ" firstAttribute="top" secondItem="8VG-HC-iwO" secondAttribute="top" id="Gj5-n3-rVF"/>
@@ -189,7 +192,7 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="8VG-HC-iwO" secondAttribute="trailing" constant="16" id="0QX-lS-J7g"/>
                                 <constraint firstItem="Rea-sK-WWc" firstAttribute="top" secondItem="8VG-HC-iwO" secondAttribute="bottom" constant="10" id="28r-ui-sSZ"/>
@@ -197,7 +200,6 @@
                                 <constraint firstAttribute="trailing" secondItem="a9T-mR-khl" secondAttribute="trailing" constant="16" id="9TN-A2-0w6"/>
                                 <constraint firstItem="Rea-sK-WWc" firstAttribute="leading" secondItem="Ufg-zg-syC" secondAttribute="leading" constant="16" id="FKF-vf-B0e"/>
                                 <constraint firstItem="a9T-mR-khl" firstAttribute="leading" secondItem="Ufg-zg-syC" secondAttribute="leading" constant="16" id="JhK-iL-Q8k"/>
-                                <constraint firstItem="8VG-HC-iwO" firstAttribute="top" secondItem="Ufg-zg-syC" secondAttribute="top" constant="10" id="YrI-5j-dav"/>
                                 <constraint firstAttribute="trailing" secondItem="Rea-sK-WWc" secondAttribute="trailing" constant="16" id="ljq-wg-r5k"/>
                                 <constraint firstItem="8VG-HC-iwO" firstAttribute="leading" secondItem="Ufg-zg-syC" secondAttribute="leading" constant="16" id="oiy-0h-pkb"/>
                                 <constraint firstAttribute="trailing" secondItem="8VG-HC-iwO" secondAttribute="trailing" constant="16" id="okW-bA-BzD"/>
@@ -241,11 +243,11 @@
                         <constraint firstAttribute="trailing" secondItem="Ufg-zg-syC" secondAttribute="trailing" id="8cd-5w-pMx"/>
                         <constraint firstAttribute="trailing" secondItem="kx6-sj-glO" secondAttribute="trailing" id="9w0-e7-WHO"/>
                         <constraint firstAttribute="bottom" secondItem="kx6-sj-glO" secondAttribute="bottom" id="CiB-BN-wOo"/>
-                        <constraint firstItem="kx6-sj-glO" firstAttribute="top" secondItem="Ufg-zg-syC" secondAttribute="bottom" id="LYI-kD-E3B"/>
-                        <constraint firstAttribute="bottom" secondItem="Ufg-zg-syC" secondAttribute="bottom" constant="395" id="SKo-Qc-TIy"/>
+                        <constraint firstItem="kx6-sj-glO" firstAttribute="top" secondItem="Ufg-zg-syC" secondAttribute="bottom" constant="8" id="LYI-kD-E3B"/>
+                        <constraint firstAttribute="bottom" secondItem="Ufg-zg-syC" secondAttribute="bottom" constant="403" id="SKo-Qc-TIy"/>
                         <constraint firstItem="Ufg-zg-syC" firstAttribute="leading" secondItem="sMZ-CK-gZz" secondAttribute="leading" id="Yp4-XR-Whg"/>
                         <constraint firstItem="kx6-sj-glO" firstAttribute="leading" secondItem="sMZ-CK-gZz" secondAttribute="leading" id="Zo5-Jl-t0O"/>
-                        <constraint firstItem="Ufg-zg-syC" firstAttribute="top" secondItem="sMZ-CK-gZz" secondAttribute="top" constant="8" id="cit-mR-hhE"/>
+                        <constraint firstItem="Ufg-zg-syC" firstAttribute="top" secondItem="sMZ-CK-gZz" secondAttribute="top" id="cit-mR-hhE"/>
                         <constraint firstItem="Ufg-zg-syC" firstAttribute="centerX" secondItem="sMZ-CK-gZz" secondAttribute="centerX" id="v2G-Gu-oAd"/>
                     </constraints>
                 </scrollView>
@@ -258,7 +260,7 @@
                 <constraint firstAttribute="trailing" secondItem="sMZ-CK-gZz" secondAttribute="trailing" id="ebm-w5-xEN"/>
                 <constraint firstItem="sMZ-CK-gZz" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="phz-ZP-aue"/>
             </constraints>
-            <point key="canvasLocation" x="136.80000000000001" y="113.79310344827587"/>
+            <point key="canvasLocation" x="136.28185907046478" y="112.8"/>
         </view>
     </objects>
     <resources>
@@ -270,9 +272,6 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

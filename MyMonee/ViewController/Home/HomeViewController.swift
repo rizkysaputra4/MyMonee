@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.navigationController?.isNavigationBarHidden = true
         nameLabel.text = user.name
-        balanceLabel.text = "Rp. \(user.currencyFormat())"
+        balanceLabel.text = "Rp. \(user.currencyToString())"
         
         saldoView.layer.cornerRadius = 8
         
@@ -40,11 +40,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transaction.count
+        return userData.transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TransactionTableViewCell.self), for: indexPath) as! TransactionTableViewCell
+        let transaction = userData.transactions
         let total = transaction[indexPath.row].transactionLabel()
         
         cell.descriptionLabel.text = transaction[indexPath.row].description
@@ -65,4 +66,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    @IBAction func newTransaction(_ sender: Any) {
+        let newTransactionPage = AddTransactionViewController(nibName: "AddTransactionViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(newTransactionPage, animated: true)
+    }
 }

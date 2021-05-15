@@ -7,7 +7,7 @@
 
 import Foundation
 
-class User {
+class User: CurrencyFormat {
     
     var name: String
     var balance: Double
@@ -17,7 +17,7 @@ class User {
         self.balance = balance
     }
     
-    func currencyFormat() -> String {
+    func currencyToString() -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.decimalSeparator = ","
@@ -28,4 +28,5 @@ class User {
         
         return currencyFormatter.string(from: NSNumber(value: self.balance))!
     }
+    
 }

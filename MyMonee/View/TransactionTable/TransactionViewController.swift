@@ -22,14 +22,14 @@ class TransactionViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transaction.count
+        return userData.transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TransactionTableViewCell.self), for: indexPath) as! TransactionTableViewCell
         
-        cell.descriptionLabel.text = transaction[indexPath.row].description
-        cell.date.text = transaction[indexPath.row].date
+        cell.descriptionLabel.text = userData.transactions[indexPath.row].description
+        cell.date.text = userData.transactions[indexPath.row].date
         
         return cell
     }

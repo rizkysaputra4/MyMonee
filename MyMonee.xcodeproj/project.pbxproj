@@ -23,6 +23,11 @@
 		FA3C2988264B998900F83AD5 /* DreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3C2986264B998900F83AD5 /* DreamViewController.xib */; };
 		FA3C298C264B999600F83AD5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C298A264B999600F83AD5 /* ProfileViewController.swift */; };
 		FA3C298D264B999600F83AD5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3C298B264B999600F83AD5 /* ProfileViewController.xib */; };
+		FA42E214264F7A05003977BA /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E212264F7A05003977BA /* AddTransactionViewController.swift */; };
+		FA42E215264F7A05003977BA /* AddTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E213264F7A05003977BA /* AddTransactionViewController.xib */; };
+		FA42E222264FCB85003977BA /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E220264FCB85003977BA /* DreamTableViewCell.swift */; };
+		FA42E223264FCB85003977BA /* DreamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E221264FCB85003977BA /* DreamTableViewCell.xib */; };
+		FA42E227264FFF77003977BA /* CurrencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E226264FFF77003977BA /* CurrencyProtocol.swift */; };
 		FA97547D264C25E00014374F /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97546A264C25E00014374F /* Poppins-ExtraLight.ttf */; };
 		FA97547E264C25E00014374F /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97546B264C25E00014374F /* Poppins-ThinItalic.ttf */; };
 		FA97547F264C25E00014374F /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97546C264C25E00014374F /* Poppins-ExtraLightItalic.ttf */; };
@@ -71,6 +76,11 @@
 		FA3C2986264B998900F83AD5 /* DreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamViewController.xib; sourceTree = "<group>"; };
 		FA3C298A264B999600F83AD5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA3C298B264B999600F83AD5 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		FA42E212264F7A05003977BA /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		FA42E213264F7A05003977BA /* AddTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionViewController.xib; sourceTree = "<group>"; };
+		FA42E220264FCB85003977BA /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
+		FA42E221264FCB85003977BA /* DreamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamTableViewCell.xib; sourceTree = "<group>"; };
+		FA42E226264FFF77003977BA /* CurrencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyProtocol.swift; sourceTree = "<group>"; };
 		FA97546A264C25E00014374F /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		FA97546B264C25E00014374F /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		FA97546C264C25E00014374F /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -162,6 +172,7 @@
 				FAE59E72264D13110002C18E /* Transaction.swift */,
 				FAE59E75264D13430002C18E /* Dream.swift */,
 				FAE59E7B264D154B0002C18E /* UserData.swift */,
+				FA42E226264FFF77003977BA /* CurrencyProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 		FA3C295D264B82CE00F83AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA42E21F264FCB2C003977BA /* DreamCell */,
 				FAE59E5F264D02A00002C18E /* TransactionTable */,
 				FAE59E59264CFE480002C18E /* TransactionCell */,
 			);
@@ -198,6 +210,7 @@
 		FA3C2971264B958A00F83AD5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FA42E211264F79DD003977BA /* AddTransaction */,
 				FA3C297F264B96A300F83AD5 /* HomeViewController.swift */,
 				FA3C2980264B96A300F83AD5 /* HomeViewController.xib */,
 			);
@@ -220,6 +233,24 @@
 				FA3C298B264B999600F83AD5 /* ProfileViewController.xib */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		FA42E211264F79DD003977BA /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				FA42E212264F7A05003977BA /* AddTransactionViewController.swift */,
+				FA42E213264F7A05003977BA /* AddTransactionViewController.xib */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		FA42E21F264FCB2C003977BA /* DreamCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA42E220264FCB85003977BA /* DreamTableViewCell.swift */,
+				FA42E221264FCB85003977BA /* DreamTableViewCell.xib */,
+			);
+			path = DreamCell;
 			sourceTree = "<group>";
 		};
 		FA975469264C25E00014374F /* Poppins */ = {
@@ -335,6 +366,7 @@
 				FA97548B264C25E00014374F /* Poppins-Black.ttf in Resources */,
 				FA97547F264C25E00014374F /* Poppins-ExtraLightItalic.ttf in Resources */,
 				FA975483264C25E00014374F /* Poppins-SemiBoldItalic.ttf in Resources */,
+				FA42E215264F7A05003977BA /* AddTransactionViewController.xib in Resources */,
 				FA97548E264C25E00014374F /* Poppins-Italic.ttf in Resources */,
 				FA97547D264C25E00014374F /* Poppins-ExtraLight.ttf in Resources */,
 				FA97548F264C25E00014374F /* Poppins-MediumItalic.ttf in Resources */,
@@ -350,6 +382,7 @@
 				FA975487264C25E00014374F /* OFL.txt in Resources */,
 				FA975485264C25E00014374F /* Poppins-ExtraBold.ttf in Resources */,
 				FA97548C264C25E00014374F /* Poppins-Thin.ttf in Resources */,
+				FA42E223264FCB85003977BA /* DreamTableViewCell.xib in Resources */,
 				FA975482264C25E00014374F /* Poppins-Medium.ttf in Resources */,
 				FA97548A264C25E00014374F /* Poppins-Bold.ttf in Resources */,
 				FA97548D264C25E00014374F /* Poppins-SemiBold.ttf in Resources */,
@@ -392,11 +425,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA42E222264FCB85003977BA /* DreamTableViewCell.swift in Sources */,
 				FAE59E7C264D154B0002C18E /* UserData.swift in Sources */,
 				FA3C2981264B96A300F83AD5 /* HomeViewController.swift in Sources */,
 				FA3C296D264B94CD00F83AD5 /* TabBarViewController.swift in Sources */,
 				FA975494264C27D40014374F /* User.swift in Sources */,
 				FA3C2947264B829D00F83AD5 /* AppDelegate.swift in Sources */,
+				FA42E214264F7A05003977BA /* AddTransactionViewController.swift in Sources */,
 				FA3C2949264B829D00F83AD5 /* SceneDelegate.swift in Sources */,
 				FAE59E6F264D03690002C18E /* TransactionViewController.swift in Sources */,
 				FAE59E73264D13110002C18E /* Transaction.swift in Sources */,
@@ -404,6 +439,7 @@
 				FA3C2987264B998900F83AD5 /* DreamViewController.swift in Sources */,
 				FAE59E5C264CFE790002C18E /* TransactionTableViewCell.swift in Sources */,
 				FAE59E76264D13430002C18E /* Dream.swift in Sources */,
+				FA42E227264FFF77003977BA /* CurrencyProtocol.swift in Sources */,
 				FA3C294B264B829D00F83AD5 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
