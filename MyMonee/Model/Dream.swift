@@ -27,6 +27,12 @@ class Dream: CurrencyFormat {
         return "IDR \(stringSaved) / IDR \(stringTarget)"
     }
     
+    func getStringTarget() -> String {
+        let formatter = currencyFormatter()
+        let stringTarget = formatter.string(from: NSNumber(value: self.target))!
+        return "Rp. \(stringTarget)"
+    }
+    
     func currencyFormatter() -> NumberFormatter {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
@@ -37,5 +43,13 @@ class Dream: CurrencyFormat {
         currencyFormatter.maximumFractionDigits = 2
         return currencyFormatter
     }
+    
+    func getDreamProgress() -> Double {
+        let progress = self.saved / self.target
+        if progress > 1 {
+            return 1
+        }
+        return progress
     }
+}
    

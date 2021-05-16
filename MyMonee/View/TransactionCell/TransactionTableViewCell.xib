@@ -79,6 +79,7 @@
                 <outlet property="arrowImg" destination="Erm-kE-K00" id="4Kz-cA-T0t"/>
                 <outlet property="date" destination="4pq-nG-GRY" id="hif-2j-7OI"/>
                 <outlet property="descriptionLabel" destination="ekt-Hf-6JQ" id="Odj-DU-vyB"/>
+                <outlet property="mainView" destination="H2p-sc-9uM" id="H41-Fr-zkf"/>
                 <outlet property="total" destination="vcc-Lr-Ypm" id="vcx-Bg-WxL"/>
             </connections>
             <point key="canvasLocation" x="141.30434782608697" y="95.758928571428569"/>

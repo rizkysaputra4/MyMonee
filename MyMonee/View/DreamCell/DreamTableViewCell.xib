@@ -100,6 +100,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <connections>
+                <outlet property="cellView" destination="tN8-H2-EqQ" id="sKq-ks-op7"/>
                 <outlet property="descriptionLabel" destination="Sb4-7D-ZZh" id="QJf-un-xHe"/>
                 <outlet property="progress" destination="bFE-za-ITP" id="1NX-VR-BV1"/>
                 <outlet property="progressLabel" destination="hmA-Ow-vQb" id="tHR-EJ-gR7"/>

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserData {
+struct UserData {
     
     var user: User
     var transactions: [Transaction]
@@ -21,6 +21,33 @@ class UserData {
     
     func totalDream() -> Int {
         return dreams.count
+    }
+    
+    func countTotal(type: TransactionType) -> Double {
+        var total: Double = 0
+        for transaction in self.transactions {
+            if transaction.type == type {
+                total += transaction.total ?? 0
+            }
+        }
+        
+       return total
+    }
+    
+    func countTotalInString(type: TransactionType) -> String {
+        let formatter = currencyFormatter()
+        return "Rp. \(formatter.string(from: NSNumber(value: countTotal(type: type)))!)"
+    }
+    
+    func currencyFormatter() -> NumberFormatter {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.decimalSeparator = ","
+        currencyFormatter.groupingSeparator = "."
+        currencyFormatter.groupingSize = 3
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.maximumFractionDigits = 2
+        return currencyFormatter
     }
 }
 

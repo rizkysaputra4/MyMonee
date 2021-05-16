@@ -19,8 +19,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MyMonee" customModuleProvider="target">
             <connections>
                 <outlet property="balanceLabel" destination="Uxi-DW-DjH" id="qo9-wJ-ioP"/>
+                <outlet property="incomeLabel" destination="wnf-9t-W3o" id="NhU-Ix-C4Y"/>
                 <outlet property="mainView" destination="i5M-Pr-FkT" id="Fzf-jY-9gd"/>
                 <outlet property="nameLabel" destination="VVc-2f-S9Y" id="KL3-tH-iQo"/>
+                <outlet property="outcomeLabel" destination="MSz-Fa-gGw" id="u7K-uT-oUl"/>
                 <outlet property="saldoView" destination="Rea-sK-WWc" id="wF1-eO-sSn"/>
                 <outlet property="transactionTableView" destination="6Mv-cI-tZQ" id="rdB-0N-8NL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

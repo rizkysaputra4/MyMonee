@@ -7,17 +7,26 @@
 
 import UIKit
 
-class DreamTableViewCell: UITableViewCell {
+protocol CellDelegate {
+    func toDetailPage(thisRow: Int)
+}
 
+class DreamTableViewCell: UITableViewCell {
+    
+    var cellDelegate: CellDelegate?
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
-//    var userDataReceived: UserData?
+    @IBOutlet weak var cellView: UIView!
+    //    var userDataReceived: UserData?
     var currentRow: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.buttonPressed))
+        cellView.isUserInteractionEnabled = true
+        cellView.addGestureRecognizer(tap)
         
     }
 
@@ -27,7 +36,7 @@ class DreamTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func buttonPressed(_ sender: Any) {
-        
+    @objc func buttonPressed() {
+        cellDelegate?.toDetailPage(thisRow: currentRow!)
     }
 }

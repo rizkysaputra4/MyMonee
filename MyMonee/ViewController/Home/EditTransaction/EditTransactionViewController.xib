@@ -16,13 +16,14 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTransactionViewController" customModule="MyMonee" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditTransactionViewController" customModule="MyMonee" customModuleProvider="target">
             <connections>
-                <outlet property="descriptionInput" destination="Tfq-uc-dpz" id="e8R-gC-MD4"/>
-                <outlet property="incomeButton" destination="p61-C4-Z1z" id="tVG-CD-KZZ"/>
-                <outlet property="outcomeButton" destination="uha-TG-9Xf" id="UsD-kE-QcF"/>
-                <outlet property="saveButton" destination="K7f-yd-1Pa" id="aEm-IQ-Gzi"/>
-                <outlet property="totalInput" destination="l25-zl-XNL" id="k7i-lB-WK2"/>
+                <outlet property="deleteButton" destination="K7f-yd-1Pa" id="EMs-Ft-oqy"/>
+                <outlet property="descriptionInput" destination="Tfq-uc-dpz" id="jaM-J6-Wve"/>
+                <outlet property="incomeButton" destination="p61-C4-Z1z" id="i2N-tc-P1M"/>
+                <outlet property="outcomeButton" destination="uha-TG-9Xf" id="x9P-c0-HHM"/>
+                <outlet property="saveButton" destination="Pra-mF-Rz0" id="Ggp-Td-Q1W"/>
+                <outlet property="totalInput" destination="l25-zl-XNL" id="Uqc-b0-kh3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,14 +32,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvW-VV-Bi7">
-                    <rect key="frame" x="16" y="10" width="190" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvW-VV-Bi7" userLabel="Ubah Penggunaan">
+                    <rect key="frame" x="16" y="10" width="169" height="22"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                    <state key="normal" title="  Tambah penggunaan" image="arrow_back_24px">
+                    <state key="normal" title="  Ubah Penggunaan" image="arrow_back_24px">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </state>
                     <connections>
-                        <action selector="pressBack:" destination="-1" eventType="touchUpInside" id="tet-cs-xwm"/>
+                        <action selector="goBack:" destination="-1" eventType="touchUpInside" id="lJQ-S0-qUv"/>
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCJ-nf-SEb">
@@ -64,7 +65,7 @@
                                                 <color key="titleColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <action selector="incomeBtnPressed:" destination="-1" eventType="touchUpInside" id="E6f-OR-7Gf"/>
+                                                <action selector="incomeBtnPressed:" destination="-1" eventType="touchUpInside" id="ivb-8W-uey"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uha-TG-9Xf">
@@ -75,7 +76,7 @@
                                                 <color key="titleColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <action selector="outcomeBtnPressed:" destination="-1" eventType="touchUpInside" id="MxO-Zf-uIi"/>
+                                                <action selector="outcomeBtnPressed:" destination="-1" eventType="touchUpInside" id="rkV-eL-sv8"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -118,7 +119,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Total" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l25-zl-XNL">
                                     <rect key="frame" x="16" y="103.5" width="351" height="35.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="24"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -138,10 +139,29 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7f-yd-1Pa">
-                            <rect key="frame" x="20" y="512" width="335" height="43"/>
-                            <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="16" y="512" width="343" height="43"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="jwz-n9-svL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                            <state key="normal" title="Hapus">
+                                <color key="titleColor" systemColor="systemPinkColor"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="deletePressed:" destination="-1" eventType="touchUpInside" id="fZs-nD-N1Q"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pra-mF-Rz0">
+                            <rect key="frame" x="16" y="449" width="343" height="43"/>
+                            <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="I2a-CP-E2W"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                             <state key="normal" title="Simpan">
@@ -153,7 +173,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="savePressed:" destination="-1" eventType="touchUpInside" id="jLo-Zq-rla"/>
+                                <action selector="savePressed:" destination="-1" eventType="touchUpInside" id="oqc-Du-5U9"/>
                             </connections>
                         </button>
                     </subviews>
@@ -161,12 +181,15 @@
                         <constraint firstItem="1hI-ZH-pPA" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" id="6x9-V5-d0P"/>
                         <constraint firstAttribute="trailing" secondItem="aqk-bO-QPc" secondAttribute="trailingMargin" constant="8" id="Cbw-MN-auI"/>
                         <constraint firstAttribute="bottom" secondItem="K7f-yd-1Pa" secondAttribute="bottom" constant="20" id="GSZ-Xd-741"/>
+                        <constraint firstItem="K7f-yd-1Pa" firstAttribute="top" secondItem="Pra-mF-Rz0" secondAttribute="bottom" constant="20" id="ReC-O7-c9L"/>
+                        <constraint firstItem="Pra-mF-Rz0" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" constant="16" id="agd-63-wBR"/>
                         <constraint firstAttribute="trailing" secondItem="1hI-ZH-pPA" secondAttribute="trailing" id="buR-gb-4UY"/>
                         <constraint firstItem="aqk-bO-QPc" firstAttribute="centerX" secondItem="NCJ-nf-SEb" secondAttribute="centerX" id="eM1-LR-lun"/>
                         <constraint firstItem="aqk-bO-QPc" firstAttribute="top" secondItem="NCJ-nf-SEb" secondAttribute="topMargin" id="eS0-St-hHg"/>
-                        <constraint firstAttribute="trailing" secondItem="K7f-yd-1Pa" secondAttribute="trailing" constant="20" id="eTN-hT-UVo"/>
+                        <constraint firstAttribute="trailing" secondItem="K7f-yd-1Pa" secondAttribute="trailing" constant="16" id="eTN-hT-UVo"/>
                         <constraint firstItem="aqk-bO-QPc" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" id="jAH-cd-cYx"/>
-                        <constraint firstItem="K7f-yd-1Pa" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" constant="20" id="mkc-40-Gxc"/>
+                        <constraint firstItem="K7f-yd-1Pa" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" constant="16" id="mkc-40-Gxc"/>
+                        <constraint firstAttribute="trailing" secondItem="Pra-mF-Rz0" secondAttribute="trailing" constant="16" id="s0I-1V-zbk"/>
                         <constraint firstItem="K7f-yd-1Pa" firstAttribute="top" secondItem="1hI-ZH-pPA" secondAttribute="bottom" constant="220" id="tlU-IM-NPJ"/>
                         <constraint firstItem="1hI-ZH-pPA" firstAttribute="top" secondItem="aqk-bO-QPc" secondAttribute="bottom" id="tlY-wL-61b"/>
                     </constraints>
@@ -192,6 +215,9 @@
         <image name="arrow_upward_24px" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

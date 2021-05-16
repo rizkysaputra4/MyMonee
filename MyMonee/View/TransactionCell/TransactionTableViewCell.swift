@@ -17,15 +17,25 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var arrowBackground: UIView!
     
+    var cellDelegate: CellDelegate?
+    var thisRow: Int?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+        mainView.isUserInteractionEnabled = true
+        mainView.addGestureRecognizer(tap)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @objc func handleTap() {
+        cellDelegate?.toDetailPage(thisRow: self.thisRow!)
     }
     
 }

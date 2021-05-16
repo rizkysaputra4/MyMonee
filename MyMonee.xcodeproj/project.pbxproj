@@ -28,6 +28,16 @@
 		FA42E222264FCB85003977BA /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E220264FCB85003977BA /* DreamTableViewCell.swift */; };
 		FA42E223264FCB85003977BA /* DreamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E221264FCB85003977BA /* DreamTableViewCell.xib */; };
 		FA42E227264FFF77003977BA /* CurrencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E226264FFF77003977BA /* CurrencyProtocol.swift */; };
+		FA42E22C2650288C003977BA /* AddDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E22A2650288C003977BA /* AddDreamViewController.swift */; };
+		FA42E2312650294B003977BA /* AddDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E2302650294B003977BA /* AddDreamViewController.xib */; };
+		FA42E23C26502DE1003977BA /* DreamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E23A26502DE1003977BA /* DreamDetailViewController.swift */; };
+		FA42E23D26502DE1003977BA /* DreamDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E23B26502DE1003977BA /* DreamDetailViewController.xib */; };
+		FA7658212650F52F00A0942C /* EditDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76581F2650F52F00A0942C /* EditDreamViewController.swift */; };
+		FA7658252650F6A300A0942C /* EditDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7658242650F6A300A0942C /* EditDreamViewController.xib */; };
+		FA76582B2650FB3B00A0942C /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76582A2650FB3B00A0942C /* TransactionDetailViewController.swift */; };
+		FA76582F2650FB5F00A0942C /* TransactionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA76582E2650FB5F00A0942C /* TransactionDetailViewController.xib */; };
+		FA76583526510BD800A0942C /* EditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76583326510BD800A0942C /* EditTransactionViewController.swift */; };
+		FA76583A26510C0800A0942C /* EditTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA76583926510C0800A0942C /* EditTransactionViewController.xib */; };
 		FA97547D264C25E00014374F /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97546A264C25E00014374F /* Poppins-ExtraLight.ttf */; };
 		FA97547E264C25E00014374F /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97546B264C25E00014374F /* Poppins-ThinItalic.ttf */; };
 		FA97547F264C25E00014374F /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA97546C264C25E00014374F /* Poppins-ExtraLightItalic.ttf */; };
@@ -81,6 +91,16 @@
 		FA42E220264FCB85003977BA /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
 		FA42E221264FCB85003977BA /* DreamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamTableViewCell.xib; sourceTree = "<group>"; };
 		FA42E226264FFF77003977BA /* CurrencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyProtocol.swift; sourceTree = "<group>"; };
+		FA42E22A2650288C003977BA /* AddDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDreamViewController.swift; sourceTree = "<group>"; };
+		FA42E2302650294B003977BA /* AddDreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddDreamViewController.xib; path = "/Users/RizkySaputra/Data/Code/MandiriAcademy/IOS/Final Project/MyMonee/MyMonee/ViewController/Dream/AddDream/AddDreamViewController.xib"; sourceTree = "<absolute>"; };
+		FA42E23A26502DE1003977BA /* DreamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamDetailViewController.swift; sourceTree = "<group>"; };
+		FA42E23B26502DE1003977BA /* DreamDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamDetailViewController.xib; sourceTree = "<group>"; };
+		FA76581F2650F52F00A0942C /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; };
+		FA7658242650F6A300A0942C /* EditDreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditDreamViewController.xib; path = MyMonee/ViewController/Dream/EditDream/EditDreamViewController.xib; sourceTree = SOURCE_ROOT; };
+		FA76582A2650FB3B00A0942C /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		FA76582E2650FB5F00A0942C /* TransactionDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TransactionDetailViewController.xib; path = MyMonee/ViewController/Home/TransactionDetail/TransactionDetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		FA76583326510BD800A0942C /* EditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionViewController.swift; sourceTree = "<group>"; };
+		FA76583926510C0800A0942C /* EditTransactionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditTransactionViewController.xib; path = MyMonee/ViewController/Home/EditTransaction/EditTransactionViewController.xib; sourceTree = SOURCE_ROOT; };
 		FA97546A264C25E00014374F /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		FA97546B264C25E00014374F /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		FA97546C264C25E00014374F /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -210,6 +230,8 @@
 		FA3C2971264B958A00F83AD5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FA76583226510BBC00A0942C /* EditTransaction */,
+				FA7658292650FB2200A0942C /* TransactionDetail */,
 				FA42E211264F79DD003977BA /* AddTransaction */,
 				FA3C297F264B96A300F83AD5 /* HomeViewController.swift */,
 				FA3C2980264B96A300F83AD5 /* HomeViewController.xib */,
@@ -220,6 +242,9 @@
 		FA3C2972264B959600F83AD5 /* Dream */ = {
 			isa = PBXGroup;
 			children = (
+				FA7658142650F4E400A0942C /* EditDream */,
+				FA42E23926502DC5003977BA /* DreamDetail */,
+				FA42E22926502822003977BA /* AddDream */,
 				FA3C2985264B998900F83AD5 /* DreamViewController.swift */,
 				FA3C2986264B998900F83AD5 /* DreamViewController.xib */,
 			);
@@ -251,6 +276,51 @@
 				FA42E221264FCB85003977BA /* DreamTableViewCell.xib */,
 			);
 			path = DreamCell;
+			sourceTree = "<group>";
+		};
+		FA42E22926502822003977BA /* AddDream */ = {
+			isa = PBXGroup;
+			children = (
+				FA42E2302650294B003977BA /* AddDreamViewController.xib */,
+				FA42E22A2650288C003977BA /* AddDreamViewController.swift */,
+			);
+			path = AddDream;
+			sourceTree = "<group>";
+		};
+		FA42E23926502DC5003977BA /* DreamDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FA42E23A26502DE1003977BA /* DreamDetailViewController.swift */,
+				FA42E23B26502DE1003977BA /* DreamDetailViewController.xib */,
+			);
+			path = DreamDetail;
+			sourceTree = "<group>";
+		};
+		FA7658142650F4E400A0942C /* EditDream */ = {
+			isa = PBXGroup;
+			children = (
+				FA76581F2650F52F00A0942C /* EditDreamViewController.swift */,
+				FA7658242650F6A300A0942C /* EditDreamViewController.xib */,
+			);
+			path = EditDream;
+			sourceTree = "<group>";
+		};
+		FA7658292650FB2200A0942C /* TransactionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FA76582E2650FB5F00A0942C /* TransactionDetailViewController.xib */,
+				FA76582A2650FB3B00A0942C /* TransactionDetailViewController.swift */,
+			);
+			path = TransactionDetail;
+			sourceTree = "<group>";
+		};
+		FA76583226510BBC00A0942C /* EditTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				FA76583326510BD800A0942C /* EditTransactionViewController.swift */,
+				FA76583926510C0800A0942C /* EditTransactionViewController.xib */,
+			);
+			path = EditTransaction;
 			sourceTree = "<group>";
 		};
 		FA975469264C25E00014374F /* Poppins */ = {
@@ -375,16 +445,21 @@
 				FA3C2988264B998900F83AD5 /* DreamViewController.xib in Resources */,
 				FA97547E264C25E00014374F /* Poppins-ThinItalic.ttf in Resources */,
 				FA3C2967264B8DD600F83AD5 /* .gitignore in Resources */,
+				FA76583A26510C0800A0942C /* EditTransactionViewController.xib in Resources */,
 				FA975481264C25E00014374F /* Poppins-Light.ttf in Resources */,
 				FA975488264C25E00014374F /* Poppins-Regular.ttf in Resources */,
 				FAE59E5D264CFE790002C18E /* TransactionTableViewCell.xib in Resources */,
 				FA3C2963264B8A2500F83AD5 /* .swiftlint.yml in Resources */,
+				FA7658252650F6A300A0942C /* EditDreamViewController.xib in Resources */,
 				FA975487264C25E00014374F /* OFL.txt in Resources */,
 				FA975485264C25E00014374F /* Poppins-ExtraBold.ttf in Resources */,
+				FA42E2312650294B003977BA /* AddDreamViewController.xib in Resources */,
 				FA97548C264C25E00014374F /* Poppins-Thin.ttf in Resources */,
+				FA76582F2650FB5F00A0942C /* TransactionDetailViewController.xib in Resources */,
 				FA42E223264FCB85003977BA /* DreamTableViewCell.xib in Resources */,
 				FA975482264C25E00014374F /* Poppins-Medium.ttf in Resources */,
 				FA97548A264C25E00014374F /* Poppins-Bold.ttf in Resources */,
+				FA42E23D26502DE1003977BA /* DreamDetailViewController.xib in Resources */,
 				FA97548D264C25E00014374F /* Poppins-SemiBold.ttf in Resources */,
 				FA3C2953264B829E00F83AD5 /* LaunchScreen.storyboard in Resources */,
 				FA3C2950264B829E00F83AD5 /* Preview Assets.xcassets in Resources */,
@@ -416,7 +491,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#if which swiftlint >/dev/null; then\n#  swiftlint\n#    swiftlint autocorrect\n#else\n#  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -425,20 +500,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA76583526510BD800A0942C /* EditTransactionViewController.swift in Sources */,
 				FA42E222264FCB85003977BA /* DreamTableViewCell.swift in Sources */,
 				FAE59E7C264D154B0002C18E /* UserData.swift in Sources */,
 				FA3C2981264B96A300F83AD5 /* HomeViewController.swift in Sources */,
 				FA3C296D264B94CD00F83AD5 /* TabBarViewController.swift in Sources */,
 				FA975494264C27D40014374F /* User.swift in Sources */,
+				FA42E22C2650288C003977BA /* AddDreamViewController.swift in Sources */,
 				FA3C2947264B829D00F83AD5 /* AppDelegate.swift in Sources */,
 				FA42E214264F7A05003977BA /* AddTransactionViewController.swift in Sources */,
 				FA3C2949264B829D00F83AD5 /* SceneDelegate.swift in Sources */,
+				FA42E23C26502DE1003977BA /* DreamDetailViewController.swift in Sources */,
 				FAE59E6F264D03690002C18E /* TransactionViewController.swift in Sources */,
 				FAE59E73264D13110002C18E /* Transaction.swift in Sources */,
 				FA3C298C264B999600F83AD5 /* ProfileViewController.swift in Sources */,
 				FA3C2987264B998900F83AD5 /* DreamViewController.swift in Sources */,
 				FAE59E5C264CFE790002C18E /* TransactionTableViewCell.swift in Sources */,
 				FAE59E76264D13430002C18E /* Dream.swift in Sources */,
+				FA76582B2650FB3B00A0942C /* TransactionDetailViewController.swift in Sources */,
+				FA7658212650F52F00A0942C /* EditDreamViewController.swift in Sources */,
 				FA42E227264FFF77003977BA /* CurrencyProtocol.swift in Sources */,
 				FA3C294B264B829D00F83AD5 /* ContentView.swift in Sources */,
 			);

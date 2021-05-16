@@ -26,7 +26,7 @@ class User: CurrencyFormat {
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.maximumFractionDigits = 2
         
-        return currencyFormatter.string(from: NSNumber(value: self.balance))!
+        return "Rp. \(currencyFormatter.string(from: NSNumber(value: self.balance))!)"
     }
     
 }

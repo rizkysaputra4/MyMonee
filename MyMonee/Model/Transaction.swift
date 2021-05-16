@@ -11,12 +11,12 @@ enum TransactionType {
     case income, outcome
 }
 
-class Transaction {
+struct Transaction {
     
-    var description: String
-    var date: String
-    var total: Double
-    var type: TransactionType
+    var description: String?
+    var date: String?
+    var total: Double?
+    var type: TransactionType?
     
     init(description: String, date: String, total: Double, type: TransactionType) {
         self.description = description
@@ -24,6 +24,8 @@ class Transaction {
         self.total = total
         self.type = type
     }
+    
+    init() {}
     
     func getCurrencyString(number: Double) -> String {
         let currencyFormatter = NumberFormatter()
@@ -38,7 +40,7 @@ class Transaction {
     }
     
     func transactionLabel() -> String {
-        return getCurrencyString(number: self.total)
+        return "Rp. \(getCurrencyString(number: self.total ?? 0))"
     }
 
 }

@@ -27,6 +27,8 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         dreamTable.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.9176470588, alpha: 1)
         self.dreamTable.separatorStyle = .none
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "dream updated"), object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,8 +43,31 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let dreamProgress = userData.dreams[indexPath.row].saved / userData.dreams[indexPath.row].target
         cell.progress.progress = Float(dreamProgress)
-        
+        cell.cellDelegate = self
         return cell
     }
 
+    @IBAction func newDream(_ sender: Any) {
+        let newDreamPage = AddDreamViewController(nibName: "AddDreamViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(newDreamPage, animated: true)
+    }
+    
+    @objc func reloadData() {
+        self.dreamTable.reloadData()
+        self.loadData()
+    }
+    
+    func loadData() {
+       
+    }
+}
+
+extension DreamViewController: CellDelegate {
+    func toDetailPage(thisRow: Int) {
+        let dreamDetailPage = DreamDetailViewController(nibName: "DreamDetailViewController", bundle: nil)
+        dreamDetailPage.thisRow = thisRow
+        self.navigationController?.pushViewController(dreamDetailPage, animated: true)
+    }
+    
 }
