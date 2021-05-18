@@ -62,7 +62,7 @@ class DreamDetailViewController: UIViewController {
             newTransaction.description = currentDream.description
             newTransaction.total = currentDream.saved
             newTransaction.date = getCurrentDateAndTime()
-            newTransaction.uuid = NSUUID().uuidString
+            newTransaction.uuid = randomString(length: 8)
             newTransaction.type = .outcome
             
             userData.transactions.append(newTransaction)
@@ -71,7 +71,7 @@ class DreamDetailViewController: UIViewController {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
             
-            
+            encodeAndSaveToLocal(data: userData)
             dismiss()
         }
         
@@ -103,12 +103,8 @@ class DreamDetailViewController: UIViewController {
         progressView.layer.borderColor = #colorLiteral(red: 0.3830927014, green: 0.3831023574, blue: 0.3830972314, alpha: 1)
         progressView.layer.cornerRadius = 8
    
-        
         backButton.layer.borderWidth = 2
         backButton.layer.borderColor = UIColor.init(named: "main")?.cgColor
     }
     
-    
 }
-
-

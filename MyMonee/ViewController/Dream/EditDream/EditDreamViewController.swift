@@ -57,6 +57,7 @@ class EditDreamViewController: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDetail"), object: nil)
         
+        encodeAndSaveToLocal(data: userData)
         dismiss()
     }
     

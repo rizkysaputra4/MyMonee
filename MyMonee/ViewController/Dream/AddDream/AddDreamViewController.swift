@@ -51,6 +51,8 @@ class AddDreamViewController: UIViewController {
         userData.dreams.append(dream)
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
+        
+        encodeAndSaveToLocal(data: userData)
         dismiss()
     }
     

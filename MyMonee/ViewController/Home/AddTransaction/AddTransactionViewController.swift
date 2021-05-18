@@ -72,7 +72,7 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
         incomeButton.centerImageAndButton(CGFloat(10), imageOnTop: true)
         incomeButton.radiusBorder(borderWidth: 2, borderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         incomeButton.dropShadow()
-        outcomeButton.centerImageAndButton(CGFloat(5), imageOnTop: true)
+        outcomeButton.centerImageAndButton(CGFloat(10), imageOnTop: true)
         outcomeButton.radiusBorder(borderWidth: 2, borderColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         outcomeButton.dropShadow()
     }
@@ -85,6 +85,8 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
         userData.transactions.append(transaction)
         updateUserBalance(num: transaction.total!, type: transaction.type!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        encodeAndSaveToLocal(data: userData)
         dismiss()
     }
     

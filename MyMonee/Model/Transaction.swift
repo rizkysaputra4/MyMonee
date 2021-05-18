@@ -7,11 +7,12 @@
 
 import Foundation
 
-enum TransactionType {
+enum TransactionType:String, Codable {
     case income, outcome
+    
 }
 
-struct Transaction {
+struct Transaction: Codable {
     
     var uuid: String?
     var description: String?

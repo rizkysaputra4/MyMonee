@@ -26,7 +26,6 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         emptyDataView.navigationDelegate = self
         
-        
         let uiNib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         dreamTable.register(uiNib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
         
@@ -36,6 +35,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "dream updated"), object: nil)
         
         loadData()
+        encodeAndSaveToLocal(data: userData)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +67,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func loadData() {
         
-        emptyDataView.textViewArea.text = "Data kamu kosong, yuk mulai buat buat impian kamu!"
+        emptyDataView.textViewArea.text = "Data kamu kosong, yuk mulai buat impian kamu!"
         emptyDataView.contentView.backgroundColor = UIColor(named: "background")
         emptyDataView.textViewArea.backgroundColor = UIColor(named: "background")
         emptyDataView.isHidden = true

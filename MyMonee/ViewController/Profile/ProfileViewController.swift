@@ -52,11 +52,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
             self.viewDidLoad()
             self.hideOrShowBtn()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            encodeAndSaveToLocal(data: userData)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
         
-    
         self.present( alert, animated: true, completion: nil)
     }
     

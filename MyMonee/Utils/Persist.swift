@@ -10,7 +10,7 @@ import Foundation
 class PersistData {
     
     enum Key: String, CaseIterable {
-            case name, avatarData
+        case name, avatarData, mainData
             func make(for userID: String) -> String {
                 return self.rawValue + "_" + userID
             }

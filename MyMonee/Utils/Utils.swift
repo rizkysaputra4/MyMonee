@@ -75,9 +75,31 @@ func randomString(length: Int) -> String {
     return randomString
 }
 
-//func encodeAndSaveToLocal(data: UserData) {
-//    let jsonEncoder = JSONEncoder()
-//    let jsonData = try jsonEncoder.encode(data)
-//    let json = String(data: jsonData, encoding: String.Encoding.utf16)
-//    print(json)
-//}
+func encodeAndSaveToLocal(data: UserData) {
+    let jsonEncoder = JSONEncoder()
+    guard let jsonData = try? jsonEncoder.encode(data) else {
+        return
+    }
+    let json = String(data: jsonData, encoding: String.Encoding.utf8)
+    PersistData().saveValue(forKey: .mainData , value: json!, userID: "user")
+}
+
+func getAndDecodeFromLocal() -> UserData? {
+    
+    let dataParsed: String? = PersistData().readValue(forKey: .mainData, userID: "user")
+    
+    guard let stringUserData = dataParsed else {
+        print("nil when parsing user data from storage")
+        return nil
+    }
+    
+    let jsonDecoder = JSONDecoder()
+   
+    guard  let dataConverted = try? jsonDecoder.decode(UserData.self, from: stringUserData.data(using: .utf8)!) else {
+        print("error when convert data string to object")
+        return nil
+    }
+    
+    return dataConverted
+}
+

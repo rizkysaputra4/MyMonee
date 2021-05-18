@@ -68,8 +68,7 @@
 		FAF5EFDE2653241500031270 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5EFDD2653241500031270 /* Utils.swift */; };
 		FAF5EFE826533BC900031270 /* NotFoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF5EFE726533BC900031270 /* NotFoundView.xib */; };
 		FAF5EFEB26533BFB00031270 /* NotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5EFEA26533BFB00031270 /* NotFoundView.swift */; };
-		FAF5EFF026537B3400031270 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5EFEF26537B3400031270 /* UserDefault.swift */; };
-		FAF5EFF326538BF000031270 /* Persis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5EFF226538BF000031270 /* Persis.swift */; };
+		FAF5EFF326538BF000031270 /* Persist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5EFF226538BF000031270 /* Persist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,8 +135,7 @@
 		FAF5EFDD2653241500031270 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FAF5EFE726533BC900031270 /* NotFoundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotFoundView.xib; sourceTree = "<group>"; };
 		FAF5EFEA26533BFB00031270 /* NotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
-		FAF5EFEF26537B3400031270 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		FAF5EFF226538BF000031270 /* Persis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persis.swift; sourceTree = "<group>"; };
+		FAF5EFF226538BF000031270 /* Persist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +202,6 @@
 				FAE59E75264D13430002C18E /* Dream.swift */,
 				FAE59E7B264D154B0002C18E /* UserData.swift */,
 				FA42E226264FFF77003977BA /* CurrencyProtocol.swift */,
-				FAF5EFEF26537B3400031270 /* UserDefault.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -392,7 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				FAF5EFDD2653241500031270 /* Utils.swift */,
-				FAF5EFF226538BF000031270 /* Persis.swift */,
+				FAF5EFF226538BF000031270 /* Persist.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -534,14 +531,13 @@
 			files = (
 				FA76583526510BD800A0942C /* EditTransactionViewController.swift in Sources */,
 				FA42E222264FCB85003977BA /* DreamTableViewCell.swift in Sources */,
-				FAF5EFF326538BF000031270 /* Persis.swift in Sources */,
+				FAF5EFF326538BF000031270 /* Persist.swift in Sources */,
 				FAE59E7C264D154B0002C18E /* UserData.swift in Sources */,
 				FA3C2981264B96A300F83AD5 /* HomeViewController.swift in Sources */,
 				FA3C296D264B94CD00F83AD5 /* TabBarViewController.swift in Sources */,
 				FA975494264C27D40014374F /* User.swift in Sources */,
 				FA42E22C2650288C003977BA /* AddDreamViewController.swift in Sources */,
 				FAF5EFDE2653241500031270 /* Utils.swift in Sources */,
-				FAF5EFF026537B3400031270 /* UserDefault.swift in Sources */,
 				FA3C2947264B829D00F83AD5 /* AppDelegate.swift in Sources */,
 				FA42E214264F7A05003977BA /* AddTransactionViewController.swift in Sources */,
 				FA3C2949264B829D00F83AD5 /* SceneDelegate.swift in Sources */,
@@ -699,6 +695,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyMonee/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MyMonee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,6 +716,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyMonee/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MyMonee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

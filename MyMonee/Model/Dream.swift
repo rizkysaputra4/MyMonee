@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Dream: CurrencyFormat {
+class Dream: CurrencyFormat, Codable {
     
     var description: String
     var target: Double

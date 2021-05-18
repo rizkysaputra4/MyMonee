@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserData {
+struct UserData: Codable {
     
     var user: User
     var transactions: [Transaction]
@@ -61,18 +61,8 @@ struct UserData {
     }
 }
 
-var user = User(name: "Rizky Saputra", balance: 5000000)
-
-//var transactions = [
-//    Transaction(description: "gaji", date: "2020-01-01", total: 30000, type: .income),
-//    Transaction(description: "beli mouse", date: "2021-02-01", total: 5000, type: .outcome)
-//]
-
+var user = User(name: "Rizky Saputra", balance: 0)
 var transactions: [Transaction] = []
+var dream: [Dream] = []
 
-var dream = [
-    Dream(description: "beli hp", target: 1000000, saved: 1000),
-    Dream(description: "beli rumah", target: 2000000, saved: 3000000)
-]
-
-var userData = UserData(user: user, transactions: transactions, dreams: dream)
+var userData = getAndDecodeFromLocal() ?? UserData(user: user, transactions: transactions, dreams: dream)

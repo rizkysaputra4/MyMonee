@@ -7,7 +7,7 @@
 
 import Foundation
 
-class User: CurrencyFormat {
+class User: CurrencyFormat, Codable {
     
     var name: String
     var balance: Double

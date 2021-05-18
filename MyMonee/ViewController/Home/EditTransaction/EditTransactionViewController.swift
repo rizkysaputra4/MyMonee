@@ -15,6 +15,7 @@ class EditTransactionViewController: UIViewController {
     @IBOutlet weak var descriptionInput: UITextField!
     @IBOutlet weak var totalInput: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var buttonStackView: UIStackView!
     
     var transaction: Transaction = Transaction()
     var thisRow: Int?
@@ -75,12 +76,12 @@ class EditTransactionViewController: UIViewController {
         transaction.date = userData.transactions[thisRow!].date
         transaction.uuid = userData.transactions[thisRow!].uuid
         
-        updateUserBalance(num: self.transaction.total! - userData.transactions[thisRow!].total!, type: self.transaction.type!)
         userData.transactions[thisRow!] = self.transaction
+        updateUserBalance(num: self.transaction.total! , type: self.transaction.type!)
 
-       
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         
+        encodeAndSaveToLocal(data: userData)
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -93,11 +94,18 @@ class EditTransactionViewController: UIViewController {
         
         userData.transactions.remove(at: thisRow!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        encodeAndSaveToLocal(data: userData)
         self.navigationController?.popToRootViewController(animated: false)
     }
     
     func updateUserBalance(num: Double, type: TransactionType) {
        
+//        let totalIncome = userData.countTotal(type: .income)
+//        let totalOutcome = userData.countTotal(type: .outcome)
+//
+//        userData.user.balance += totalIncome - totalOutcome
+        
         if type == .income {
             userData.user.balance += num
         }
@@ -109,7 +117,9 @@ class EditTransactionViewController: UIViewController {
     func loadDefaultValue() {
         let userTransaction = userData.transactions
         descriptionInput.text = userTransaction[thisRow!].description
-        totalInput.text = numOnly(character: String(userTransaction[thisRow!].total!))
+        let userTransactionInString = String(userTransaction[thisRow!].total!)
+        
+        totalInput.text = numOnly(character: String(userTransactionInString.dropLast()))
         print(userTransaction[thisRow!].type == .income, userTransaction[thisRow!].type == .outcome)
         if userTransaction[thisRow!].type == .income {
            loadViewStyle()
@@ -133,9 +143,10 @@ class EditTransactionViewController: UIViewController {
         incomeButton.centerImageAndButton(CGFloat(10), imageOnTop: true)
         incomeButton.radiusBorder(borderWidth: 2, borderColor: UIColor.white.cgColor)
         incomeButton.dropShadow()
-        outcomeButton.centerImageAndButton(CGFloat(5), imageOnTop: true)
+        outcomeButton.centerImageAndButton(CGFloat(10), imageOnTop: true)
         outcomeButton.radiusBorder(borderWidth: 2, borderColor: UIColor.white.cgColor)
         outcomeButton.dropShadow()
+        
     }
 
 }

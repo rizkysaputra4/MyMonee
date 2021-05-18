@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
-        nameLabel.text = user.name
+        nameLabel.text = userData.user.name
         
         saldoView.layer.cornerRadius = 8
         
