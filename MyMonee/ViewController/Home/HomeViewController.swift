@@ -18,7 +18,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var emptyTransactionView: NotFoundView!
     @IBOutlet weak var transactionTable: UITableView!
     @IBOutlet weak var greetingsLabel: UILabel!
-    
     @IBOutlet weak var transactionTableView: UITableView!
     
     override func viewDidLoad() {
@@ -37,7 +36,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         transactionTableView.dataSource = self
         
         emptyTransactionView.navigationDelegate = self
-        emptyTransactionView.type = "catatan"
+        emptyTransactionView.textViewArea.text = "Data kamu kosong, yuk mulai catatan kamu!"
         
         
         let uiNib = UINib(nibName: String(describing: TransactionTableViewCell.self), bundle: nil)
@@ -52,6 +51,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadData()
         
     }
+
     
     @objc func reloadData() {
         self.transactionTableView.reloadData()

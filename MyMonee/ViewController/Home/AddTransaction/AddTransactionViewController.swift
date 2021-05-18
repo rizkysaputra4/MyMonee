@@ -80,7 +80,8 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
     @IBAction func savePressed(_ sender: Any) {
         transaction.description = descriptionInput.text
         transaction.total = Double(totalInput.text!) ?? 0
-       
+        transaction.date = getLocalTimeNow()
+        transaction.uuid = randomString(length: 8)
         userData.transactions.append(transaction)
         updateUserBalance(num: transaction.total!, type: transaction.type!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)

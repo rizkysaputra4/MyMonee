@@ -27,9 +27,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     }
     
     func loadAll() {
+        
         userName.text = userData.user.name
         descriptionLabel.text = "Bagus, pengeluaranmu lebih sedikit dari pada pemasukan."
         self.viewWrapper.backgroundColor = UIColor.init(named: "main")
+        loadImage()
     }
     
     @IBAction func editBtnPressed(_ sender: Any) {
@@ -44,7 +46,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         }
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
+            let imageUrl = self.getImgUrlFromLocal()!
             userData.user.name = textField?.text ?? userData.user.name
+            self.saveImgUrlToLocal(imgURL: imageUrl)
             self.viewDidLoad()
             self.hideOrShowBtn()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -77,15 +81,56 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
-        self.photoProfile.image = image
+        
         let imageName = UUID().uuidString
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
-
+        
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
             try? jpegData.write(to: imagePath)
         }
-
+        
+        let data = try? Data(contentsOf: imagePath) 
+        self.photoProfile.image = UIImage(data: data!)
+        
+        saveImgUrlToLocal(imgURL: imagePath.absoluteString)
+        
         dismiss(animated: true)
+    }
+    
+    func loadImage(){
+        
+        guard let imgStringUrl = getImgUrlFromLocal() else {
+            print("url from userdefault")
+            return setDefaultPhotoProfile()
+        }
+        
+        guard let imgUrl = URL(string: imgStringUrl) else {
+            print("url parsing")
+            return setDefaultPhotoProfile()
+        }
+        
+        guard let data = try? Data(contentsOf: imgUrl) else {
+            print("get image")
+            return setDefaultPhotoProfile()
+        }
+        
+        self.photoProfile.image = UIImage(data: data)
+    }
+    
+    func getImgUrlFromLocal() -> String? {
+        let persist = PersistData()
+        let imgStringUrlOp: String? = persist.readValue(forKey: .avatarData, userID: userData.user.name)
+        
+        return imgStringUrlOp
+    }
+    
+    func saveImgUrlToLocal(imgURL: String) {
+        let persist = PersistData()
+        persist.saveValue(forKey: .avatarData, value: imgURL, userID: userData.user.name)
+    }
+    
+    func setDefaultPhotoProfile() {
+        self.photoProfile.image = UIImage(named: "default_pp")
     }
 
     func getDocumentsDirectory() -> URL {

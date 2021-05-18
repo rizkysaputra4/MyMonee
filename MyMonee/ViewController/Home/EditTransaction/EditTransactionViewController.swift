@@ -57,8 +57,8 @@ class EditTransactionViewController: UIViewController {
     
    @IBAction func incomeBtnPressed(_ sender: Any) {
         transaction.type = .income
-    loadViewStyle()
-    incomeButton.radiusBorder(borderWidth: 4, borderColor: #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1))
+        loadViewStyle()
+        incomeButton.radiusBorder(borderWidth: 4, borderColor: #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1))
         isFilled()
     }
     
@@ -72,6 +72,9 @@ class EditTransactionViewController: UIViewController {
     @IBAction func savePressed(_ sender: Any) {
         self.transaction.description = descriptionInput.text
         self.transaction.total = Double(totalInput.text!) ?? 0
+        transaction.date = userData.transactions[thisRow!].date
+        transaction.uuid = userData.transactions[thisRow!].uuid
+        
         updateUserBalance(num: self.transaction.total! - userData.transactions[thisRow!].total!, type: self.transaction.type!)
         userData.transactions[thisRow!] = self.transaction
 

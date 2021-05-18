@@ -54,3 +54,30 @@ func currentTime() -> String {
     
     return "Pagi"
 }
+
+func getLocalTimeNow() -> String {
+    let now = Date()
+
+    let formatter = DateFormatter()
+    formatter.timeZone = TimeZone.current
+    formatter.dateFormat = "yyyy-MM-dd - HH:mm"
+    let dateString = formatter.string(from: now)
+    return dateString
+}
+
+func randomString(length: Int) -> String {
+    let letters = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+    var randomString: String = ""
+    for _ in 0..<length {
+        let randomNumber = Int.random(in: 0..<letters.count)
+        randomString.append(letters[randomNumber])
+    }
+    return randomString
+}
+
+//func encodeAndSaveToLocal(data: UserData) {
+//    let jsonEncoder = JSONEncoder()
+//    let jsonData = try jsonEncoder.encode(data)
+//    let json = String(data: jsonData, encoding: String.Encoding.utf16)
+//    print(json)
+//}

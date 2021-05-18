@@ -67,7 +67,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func loadData() {
         
-        emptyDataView.type = "impian"
+        emptyDataView.textViewArea.text = "Data kamu kosong, yuk mulai buat buat impian kamu!"
         emptyDataView.contentView.backgroundColor = UIColor(named: "background")
         emptyDataView.textViewArea.backgroundColor = UIColor(named: "background")
         emptyDataView.isHidden = true

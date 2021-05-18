@@ -31,7 +31,7 @@ class NotFoundView: UIView {
     }
 
     func initSubviews() {
-        // standard initialization logic
+       
         let nib = UINib(nibName: "NotFoundView", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
@@ -51,6 +51,5 @@ class NotFoundView: UIView {
         addButton.layer.cornerRadius = 20
         
         contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        textViewArea.text = "Data kamu kosong, yuk mulai buat \(type) kamu!"
     }
 }

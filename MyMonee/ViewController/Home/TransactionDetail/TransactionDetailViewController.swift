@@ -43,6 +43,8 @@ class TransactionDetailViewController: UIViewController {
     func loadData() {
         self.descriptionLabel.text = userData.transactions[thisRow!].description
         loadArrowIcon()
+        transactionId.text = userData.transactions[thisRow!].uuid
+        transactionDate.text = userData.transactions[thisRow!].date
     }
     
     func loadArrowIcon() {
