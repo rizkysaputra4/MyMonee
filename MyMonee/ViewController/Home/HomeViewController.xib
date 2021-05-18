@@ -19,11 +19,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MyMonee" customModuleProvider="target">
             <connections>
                 <outlet property="balanceLabel" destination="Uxi-DW-DjH" id="qo9-wJ-ioP"/>
+                <outlet property="emptyTransactionView" destination="T9D-NN-huU" id="pZg-kz-Cv5"/>
+                <outlet property="greetingsLabel" destination="XtL-Mf-LTQ" id="V5I-JA-vTU"/>
                 <outlet property="incomeLabel" destination="wnf-9t-W3o" id="NhU-Ix-C4Y"/>
                 <outlet property="mainView" destination="i5M-Pr-FkT" id="Fzf-jY-9gd"/>
                 <outlet property="nameLabel" destination="VVc-2f-S9Y" id="KL3-tH-iQo"/>
                 <outlet property="outcomeLabel" destination="MSz-Fa-gGw" id="u7K-uT-oUl"/>
                 <outlet property="saldoView" destination="Rea-sK-WWc" id="wF1-eO-sSn"/>
+                <outlet property="transactionTable" destination="6Mv-cI-tZQ" id="NiJ-xp-yTF"/>
                 <outlet property="transactionTableView" destination="6Mv-cI-tZQ" id="rdB-0N-8NL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -223,15 +226,23 @@
                                     <rect key="frame" x="0.0" y="59" width="375" height="336"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </tableView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9D-NN-huU" customClass="NotFoundView" customModule="MyMonee" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="81" width="375" height="174"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="6Mv-cI-tZQ" firstAttribute="top" secondItem="Pit-4W-eeD" secondAttribute="bottom" constant="16" id="0nF-Wk-Ckh"/>
+                                <constraint firstItem="T9D-NN-huU" firstAttribute="top" secondItem="Pit-4W-eeD" secondAttribute="bottom" constant="38" id="7n3-Vz-vcj"/>
                                 <constraint firstItem="Pit-4W-eeD" firstAttribute="leading" secondItem="kx6-sj-glO" secondAttribute="leading" constant="16" id="HIU-br-bZa"/>
+                                <constraint firstItem="T9D-NN-huU" firstAttribute="leading" secondItem="kx6-sj-glO" secondAttribute="leading" id="JV4-aR-qcj"/>
                                 <constraint firstAttribute="bottom" secondItem="6Mv-cI-tZQ" secondAttribute="bottom" id="QjB-E5-ETn"/>
                                 <constraint firstAttribute="trailing" secondItem="Pit-4W-eeD" secondAttribute="trailing" constant="16" id="RLQ-Fq-v2i"/>
+                                <constraint firstAttribute="bottom" secondItem="T9D-NN-huU" secondAttribute="bottom" constant="140" id="blm-1c-lSA"/>
                                 <constraint firstItem="6Mv-cI-tZQ" firstAttribute="leading" secondItem="kx6-sj-glO" secondAttribute="leading" id="nKU-bH-fdK"/>
                                 <constraint firstAttribute="trailing" secondItem="6Mv-cI-tZQ" secondAttribute="trailing" id="oiy-9A-kcD"/>
+                                <constraint firstItem="T9D-NN-huU" firstAttribute="centerX" secondItem="kx6-sj-glO" secondAttribute="centerX" id="pwL-ob-N3l"/>
                                 <constraint firstItem="Pit-4W-eeD" firstAttribute="top" secondItem="kx6-sj-glO" secondAttribute="top" constant="23" id="szW-iC-01G"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -262,7 +273,7 @@
                 <constraint firstAttribute="trailing" secondItem="sMZ-CK-gZz" secondAttribute="trailing" id="ebm-w5-xEN"/>
                 <constraint firstItem="sMZ-CK-gZz" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="phz-ZP-aue"/>
             </constraints>
-            <point key="canvasLocation" x="136.28185907046478" y="112.8"/>
+            <point key="canvasLocation" x="135.19999999999999" y="111.99400299850076"/>
         </view>
     </objects>
     <resources>

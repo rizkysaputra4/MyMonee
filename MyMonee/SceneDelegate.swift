@@ -27,6 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        
+        setupAppearanceTabBarView()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -56,5 +58,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    fileprivate func setupAppearanceTabBarView(){
+        UITabBar.appearance().tintColor = UIColor.init(named: "main")
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "main") ?? .black], for: .selected)
+        
+        }
 
 }

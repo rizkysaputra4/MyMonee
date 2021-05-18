@@ -49,14 +49,26 @@ struct UserData {
         currencyFormatter.maximumFractionDigits = 2
         return currencyFormatter
     }
+    
+    func updateBalance(num: Double, type: TransactionType) {
+                
+        if type == .income {
+            user.balance += num
+        }
+        else if type == .outcome {
+            user.balance -= num
+        }
+    }
 }
 
 var user = User(name: "Rizky Saputra", balance: 5000000)
 
-var transactions = [
-    Transaction(description: "gaji", date: "2020-01-01", total: 30000, type: .income),
-    Transaction(description: "beli mouse", date: "2021-02-01", total: 5000, type: .outcome)
-]
+//var transactions = [
+//    Transaction(description: "gaji", date: "2020-01-01", total: 30000, type: .income),
+//    Transaction(description: "beli mouse", date: "2021-02-01", total: 5000, type: .outcome)
+//]
+
+var transactions: [Transaction] = []
 
 var dream = [
     Dream(description: "beli hp", target: 1000000, saved: 1000),

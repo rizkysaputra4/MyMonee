@@ -22,6 +22,8 @@
                 <outlet property="dreamDescription" destination="Tfq-uc-dpz" id="EkM-Iz-ttC"/>
                 <outlet property="editBtn" destination="ekq-fZ-33o" id="qak-CG-7Ef"/>
                 <outlet property="targetTotal" destination="l25-zl-XNL" id="xNL-vc-U6i"/>
+                <outlet property="updateProgressLabel" destination="ec4-Rz-c90" id="RkE-Yz-PEq"/>
+                <outlet property="updateProgressSlider" destination="E2q-0e-ehq" id="wRz-j9-bVH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="lYO-kP-RqD"/>
             </connections>
         </placeholder>
@@ -44,10 +46,10 @@
                     <rect key="frame" x="0.0" y="45" width="375" height="622"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqk-bO-QPc">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="614"/>
+                            <rect key="frame" x="0.0" y="8" width="375" height="608"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUY-6Q-APQ">
-                                    <rect key="frame" x="16" y="561" width="343" height="43"/>
+                                    <rect key="frame" x="16" y="515" width="343" height="43"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="43" id="XSe-Pv-VEw"/>
@@ -76,8 +78,8 @@
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="24"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target capaian (Rp.)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNX-8i-k9V">
-                                    <rect key="frame" x="16" y="80.5" width="145.5" height="20"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Capaian (Rp.)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNX-8i-k9V">
+                                    <rect key="frame" x="16" y="80.5" width="148" height="20"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -88,7 +90,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekq-fZ-33o">
-                                    <rect key="frame" x="16" y="498" width="343" height="43"/>
+                                    <rect key="frame" x="16" y="452" width="343" height="43"/>
                                     <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="43" id="qRo-Z2-ymC"/>
@@ -106,12 +108,49 @@
                                         <action selector="editPressed:" destination="-1" eventType="touchUpInside" id="q2R-VX-4vf"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3c-Jg-9m6">
+                                    <rect key="frame" x="16" y="159" width="343" height="107"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEc-NY-PhT">
+                                            <rect key="frame" x="0.0" y="0.0" width="116" height="20"/>
+                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="E2q-0e-ehq">
+                                            <rect key="frame" x="3" y="38.5" width="337" height="31"/>
+                                            <connections>
+                                                <action selector="updateProgress:" destination="-1" eventType="valueChanged" id="QQ3-mQ-Rxh"/>
+                                            </connections>
+                                        </slider>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ec4-Rz-c90">
+                                            <rect key="frame" x="227.5" y="80.5" width="107.5" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="E2q-0e-ehq" secondAttribute="trailing" constant="5" id="Daj-GS-C3g"/>
+                                        <constraint firstItem="E2q-0e-ehq" firstAttribute="centerX" secondItem="p3c-Jg-9m6" secondAttribute="centerX" id="GJR-Zi-0cH"/>
+                                        <constraint firstItem="E2q-0e-ehq" firstAttribute="centerX" secondItem="p3c-Jg-9m6" secondAttribute="centerX" id="P08-RH-1XK"/>
+                                        <constraint firstAttribute="trailing" secondItem="ec4-Rz-c90" secondAttribute="trailing" constant="8" id="PnI-qT-Wtq"/>
+                                        <constraint firstItem="E2q-0e-ehq" firstAttribute="leading" secondItem="p3c-Jg-9m6" secondAttribute="leading" constant="5" id="SDw-VV-JIO"/>
+                                        <constraint firstItem="cEc-NY-PhT" firstAttribute="top" secondItem="p3c-Jg-9m6" secondAttribute="top" id="atv-7c-rmy"/>
+                                        <constraint firstItem="E2q-0e-ehq" firstAttribute="centerY" secondItem="p3c-Jg-9m6" secondAttribute="centerY" id="dv1-sk-ueg"/>
+                                        <constraint firstAttribute="height" constant="107" id="n8h-d7-Zmv"/>
+                                        <constraint firstAttribute="bottom" secondItem="ec4-Rz-c90" secondAttribute="bottom" constant="8" id="pc1-nU-LOA"/>
+                                        <constraint firstItem="cEc-NY-PhT" firstAttribute="leading" secondItem="p3c-Jg-9m6" secondAttribute="leading" id="ySW-HP-lbw"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="ekq-fZ-33o" firstAttribute="leading" secondItem="aqk-bO-QPc" secondAttribute="leading" constant="16" id="3E4-f9-Per"/>
                                 <constraint firstItem="RvB-WO-xfR" firstAttribute="leading" secondItem="aqk-bO-QPc" secondAttribute="leading" constant="16" id="7q8-7F-02d"/>
                                 <constraint firstItem="JUY-6Q-APQ" firstAttribute="top" secondItem="ekq-fZ-33o" secondAttribute="bottom" constant="20" id="7vq-ln-vdG"/>
+                                <constraint firstAttribute="trailing" secondItem="p3c-Jg-9m6" secondAttribute="trailing" constant="16" id="IDv-h1-9ZG"/>
                                 <constraint firstAttribute="trailing" secondItem="l25-zl-XNL" secondAttribute="trailingMargin" constant="16" id="ItM-qz-xHh"/>
                                 <constraint firstItem="l25-zl-XNL" firstAttribute="leading" secondItem="aqk-bO-QPc" secondAttribute="leading" constant="16" id="J1l-Cz-Pyj"/>
                                 <constraint firstItem="l25-zl-XNL" firstAttribute="top" secondItem="mNX-8i-k9V" secondAttribute="bottom" constant="3" id="KAr-so-TvK"/>
@@ -122,11 +161,13 @@
                                 <constraint firstItem="l25-zl-XNL" firstAttribute="top" secondItem="mNX-8i-k9V" secondAttribute="bottom" constant="3" id="Ovg-zd-nr0"/>
                                 <constraint firstAttribute="trailing" secondItem="ekq-fZ-33o" secondAttribute="trailing" constant="16" id="RLz-pX-XL7"/>
                                 <constraint firstAttribute="trailing" secondItem="JUY-6Q-APQ" secondAttribute="trailing" constant="16" id="RcX-YP-DAh"/>
-                                <constraint firstAttribute="height" constant="614" id="YX8-Th-F48"/>
+                                <constraint firstItem="p3c-Jg-9m6" firstAttribute="leading" secondItem="aqk-bO-QPc" secondAttribute="leading" constant="16" id="W6U-18-Lfe"/>
+                                <constraint firstAttribute="height" constant="608" id="YX8-Th-F48"/>
                                 <constraint firstItem="mNX-8i-k9V" firstAttribute="leading" secondItem="aqk-bO-QPc" secondAttribute="leading" constant="16" id="czb-Sk-5Cc"/>
                                 <constraint firstItem="Tfq-uc-dpz" firstAttribute="top" secondItem="RvB-WO-xfR" secondAttribute="bottom" constant="3" id="lU4-DU-dvF"/>
+                                <constraint firstItem="p3c-Jg-9m6" firstAttribute="top" secondItem="l25-zl-XNL" secondAttribute="bottom" constant="20" id="o02-UG-dnK"/>
                                 <constraint firstAttribute="trailing" secondItem="Tfq-uc-dpz" secondAttribute="trailingMargin" constant="16" id="rjR-wb-221"/>
-                                <constraint firstAttribute="bottom" secondItem="JUY-6Q-APQ" secondAttribute="bottom" constant="10" id="zRY-iE-mTc"/>
+                                <constraint firstAttribute="bottom" secondItem="JUY-6Q-APQ" secondAttribute="bottom" constant="50" id="zRY-iE-mTc"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -134,7 +175,7 @@
                         <constraint firstAttribute="trailing" secondItem="aqk-bO-QPc" secondAttribute="trailingMargin" constant="8" id="Cbw-MN-auI"/>
                         <constraint firstAttribute="bottom" secondItem="aqk-bO-QPc" secondAttribute="bottom" constant="8" id="R6x-yz-lsC"/>
                         <constraint firstItem="aqk-bO-QPc" firstAttribute="centerX" secondItem="NCJ-nf-SEb" secondAttribute="centerX" id="eM1-LR-lun"/>
-                        <constraint firstItem="aqk-bO-QPc" firstAttribute="top" secondItem="NCJ-nf-SEb" secondAttribute="topMargin" constant="-8" id="eS0-St-hHg"/>
+                        <constraint firstItem="aqk-bO-QPc" firstAttribute="top" secondItem="NCJ-nf-SEb" secondAttribute="topMargin" id="eS0-St-hHg"/>
                         <constraint firstItem="aqk-bO-QPc" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" id="jAH-cd-cYx"/>
                     </constraints>
                 </scrollView>

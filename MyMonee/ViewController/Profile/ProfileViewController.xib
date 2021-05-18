@@ -22,8 +22,10 @@
                 <outlet property="editBtn" destination="MoY-EA-sCl" id="coE-Mf-edt"/>
                 <outlet property="editImgBtn" destination="YSt-wk-6pq" id="uuV-sa-UhJ"/>
                 <outlet property="editNameBtn" destination="kQa-s5-EQG" id="Nez-dy-Blm"/>
+                <outlet property="photoProfile" destination="Asz-JQ-fvT" id="zCu-GL-j6d"/>
                 <outlet property="userName" destination="3OC-sb-aZe" id="FME-Zf-P2r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewWrapper" destination="ShJ-Wp-SMX" id="dWF-sF-XtQ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -48,6 +50,9 @@
                                     <rect key="frame" x="74" y="74" width="24" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="edit_btn"/>
+                                    <connections>
+                                        <action selector="editImagePressed:" destination="-1" eventType="touchUpInside" id="vT1-Yt-I8Q"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,6 +95,9 @@
                                 <constraint firstAttribute="width" constant="22" id="aWI-0g-UaP"/>
                             </constraints>
                             <state key="normal" image="edit_pencil"/>
+                            <connections>
+                                <action selector="editNameBtnPressed:" destination="-1" eventType="touchUpInside" id="6qS-C0-q5D"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

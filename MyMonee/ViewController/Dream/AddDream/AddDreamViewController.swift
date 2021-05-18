@@ -28,6 +28,7 @@ class AddDreamViewController: UIViewController {
     }
     
     @objc func didChange(_ textField: UITextField) {
+        targetTotal.numberOnly()
              isFilled()
     }
     
@@ -36,9 +37,10 @@ class AddDreamViewController: UIViewController {
         let isTotalEmpty = targetTotal.text?.isEmpty ?? true
 
         if  isDescriptionEmty || isTotalEmpty {
-            saveBtn.layer.backgroundColor = #colorLiteral(red: 0.5148796439, green: 0.5535522103, blue: 0.5920764804, alpha: 1)
+            saveBtn.isEnabled = false
+            saveBtn.layer.backgroundColor = UIColor(named: "disabled")?.cgColor
         } else {
-            saveBtn.layer.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1)
+            saveBtn.layer.backgroundColor = UIColor(named: "main")?.cgColor
             saveBtn.isEnabled = true
         }
         

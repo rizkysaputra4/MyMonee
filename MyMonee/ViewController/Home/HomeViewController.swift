@@ -15,6 +15,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var outcomeLabel: UILabel!
+    @IBOutlet weak var emptyTransactionView: NotFoundView!
+    @IBOutlet weak var transactionTable: UITableView!
+    @IBOutlet weak var greetingsLabel: UILabel!
     
     @IBOutlet weak var transactionTableView: UITableView!
     
@@ -33,6 +36,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
         
+        emptyTransactionView.navigationDelegate = self
+        emptyTransactionView.type = "catatan"
+        
+        
         let uiNib = UINib(nibName: String(describing: TransactionTableViewCell.self), bundle: nil)
         transactionTableView.register(uiNib, forCellReuseIdentifier: String(describing: TransactionTableViewCell.self))
         
@@ -49,6 +56,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func reloadData() {
         self.transactionTableView.reloadData()
         self.loadData()
+        self.viewDidLoad()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,7 +91,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func newTransaction(_ sender: Any) {
         let newTransactionPage = AddTransactionViewController(nibName: "AddTransactionViewController", bundle: nil)
-        
+        newTransactionPage.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(newTransactionPage, animated: true)
     }
     
@@ -91,16 +99,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         incomeLabel.text = userData.countTotalInString(type: .income)
         outcomeLabel.text = userData.countTotalInString(type: .outcome)
         balanceLabel.text = userData.user.currencyToString()
+        emptyTransactionView.isHidden = true
+        emptyTransactionView.addButton.setTitle("Tambah Penggunaan", for: .normal)
+        if userData.transactions.isEmpty {
+            transactionTable.isHidden = true
+            emptyTransactionView.isHidden = false
+        } else {
+            transactionTable.isHidden = false
+            emptyTransactionView.isHidden = true
+        }
+        
+        greetingsLabel.text = "Selamat \(currentTime()),"
+        
     }
 }
 
-extension HomeViewController: CellDelegate {
+extension HomeViewController: CellDelegate, Navigations {
+
+    func toAddNewPage() {
+        let newTransactionpage = AddTransactionViewController(nibName: "AddTransactionViewController", bundle: nil)
+        self.navigationController?.pushViewController(newTransactionpage, animated: true)
+    }
+    
     func toDetailPage(thisRow: Int) {
         
         let dreamDetailPage = TransactionDetailViewController(nibName: "TransactionDetailViewController", bundle: nil)
         dreamDetailPage.thisRow = thisRow
-        
+        dreamDetailPage.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(dreamDetailPage, animated: true)
     }
     
 }
+

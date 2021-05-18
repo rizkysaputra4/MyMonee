@@ -139,7 +139,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7f-yd-1Pa">
-                            <rect key="frame" x="16" y="512" width="343" height="43"/>
+                            <rect key="frame" x="16" y="559" width="343" height="43"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="jwz-n9-svL"/>
@@ -158,7 +158,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pra-mF-Rz0">
-                            <rect key="frame" x="16" y="449" width="343" height="43"/>
+                            <rect key="frame" x="16" y="496" width="343" height="43"/>
                             <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="I2a-CP-E2W"/>
@@ -190,7 +190,7 @@
                         <constraint firstItem="aqk-bO-QPc" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" id="jAH-cd-cYx"/>
                         <constraint firstItem="K7f-yd-1Pa" firstAttribute="leading" secondItem="NCJ-nf-SEb" secondAttribute="leading" constant="16" id="mkc-40-Gxc"/>
                         <constraint firstAttribute="trailing" secondItem="Pra-mF-Rz0" secondAttribute="trailing" constant="16" id="s0I-1V-zbk"/>
-                        <constraint firstItem="K7f-yd-1Pa" firstAttribute="top" secondItem="1hI-ZH-pPA" secondAttribute="bottom" constant="220" id="tlU-IM-NPJ"/>
+                        <constraint firstItem="K7f-yd-1Pa" firstAttribute="top" secondItem="1hI-ZH-pPA" secondAttribute="bottom" constant="267" id="tlU-IM-NPJ"/>
                         <constraint firstItem="1hI-ZH-pPA" firstAttribute="top" secondItem="aqk-bO-QPc" secondAttribute="bottom" id="tlY-wL-61b"/>
                     </constraints>
                 </scrollView>

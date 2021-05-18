@@ -16,6 +16,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DreamViewController" customModule="MyMonee" customModuleProvider="target">
             <connections>
                 <outlet property="dreamTable" destination="CKE-DJ-zxL" id="f0y-6A-Q9D"/>
+                <outlet property="dreamTableView" destination="CKE-DJ-zxL" id="m6w-fa-NIw"/>
+                <outlet property="emptyDataView" destination="IVY-z5-Dkv" id="fOp-EI-TDB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -76,11 +78,21 @@
                         <constraint firstItem="aJY-6d-ZKT" firstAttribute="centerX" secondItem="If9-lJ-kP4" secondAttribute="centerX" id="z92-Sg-Sdm"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVY-z5-Dkv" customClass="NotFoundView" customModule="MyMonee" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="206" width="375" height="200"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="f5T-o1-hd4"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
                 <constraint firstItem="If9-lJ-kP4" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="3rG-3S-JMB"/>
+                <constraint firstItem="IVY-z5-Dkv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8nV-eN-gKp"/>
+                <constraint firstItem="IVY-z5-Dkv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9iA-xy-3P1"/>
+                <constraint firstItem="IVY-z5-Dkv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="206" id="Gel-sb-jDu"/>
                 <constraint firstItem="If9-lJ-kP4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Jzp-Qj-TOG"/>
                 <constraint firstItem="If9-lJ-kP4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UPN-bh-91x"/>
                 <constraint firstItem="If9-lJ-kP4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cI5-n4-Wpx"/>

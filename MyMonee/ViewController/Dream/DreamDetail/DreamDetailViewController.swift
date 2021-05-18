@@ -26,7 +26,7 @@ class DreamDetailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidLoad), name: NSNotification.Name(rawValue: "updateDetail"), object: nil)
         
-       loadViewStyle()
+        loadViewStyle()
         archieveBtnHandler()
     
     }
@@ -36,8 +36,7 @@ class DreamDetailViewController: UIViewController {
     }
     
     func dismiss() {
-        navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func editPressed(_ sender: Any) {
@@ -47,20 +46,35 @@ class DreamDetailViewController: UIViewController {
     }
     
     func archieveBtnHandler() {
-        if userData.dreams[thisRow!].getDreamProgress() >= 1 {
+        if userData.dreams[thisRow!].getDreamProgress() < 1 {
             dreamArchieved.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             dreamArchieved.isEnabled = false
         } else {
-            dreamArchieved.layer.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1)
+            dreamArchieved.layer.backgroundColor = UIColor.init(named: "main")?.cgColor
         }
     }
     
     @IBAction func archieveBtnPressed(_ sender: Any) {
-        userData.dreams[thisRow!].saved = userData.dreams[thisRow!].target
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
-//        progressArchieved()
-        viewDidLoad()
-        archieveBtnHandler()
+        let currentDream = userData.dreams[thisRow!]
+        if currentDream.saved >= currentDream.target {
+            
+            var newTransaction = Transaction()
+            newTransaction.description = currentDream.description
+            newTransaction.total = currentDream.saved
+            newTransaction.date = getCurrentDateAndTime()
+            newTransaction.uuid = NSUUID().uuidString
+            newTransaction.type = .outcome
+            
+            userData.transactions.append(newTransaction)
+            userData.dreams.remove(at: thisRow!)
+            userData.updateBalance(num: newTransaction.total!, type: newTransaction.type!)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            
+            
+            dismiss()
+        }
+        
     }
     
     func progressArchieved() {
@@ -79,6 +93,7 @@ class DreamDetailViewController: UIViewController {
         
         progressViewBar.progress = Float(thisDream.getDreamProgress())
         progressBarLabel.text = thisDream.currencyToString()
+        progressViewBar.progressTintColor = UIColor.init(named: "main")
         
         heartView.layer.borderWidth = 1
         heartView.layer.borderColor = #colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)
@@ -87,8 +102,13 @@ class DreamDetailViewController: UIViewController {
         progressView.layer.borderWidth = 1
         progressView.layer.borderColor = #colorLiteral(red: 0.3830927014, green: 0.3831023574, blue: 0.3830972314, alpha: 1)
         progressView.layer.cornerRadius = 8
+   
         
         backButton.layer.borderWidth = 2
-        backButton.layer.borderColor = #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1)
+        backButton.layer.borderColor = UIColor.init(named: "main")?.cgColor
     }
+    
+    
 }
+
+

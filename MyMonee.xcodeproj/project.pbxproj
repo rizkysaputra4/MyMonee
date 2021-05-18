@@ -65,6 +65,9 @@
 		FAE59E73264D13110002C18E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E72264D13110002C18E /* Transaction.swift */; };
 		FAE59E76264D13430002C18E /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E75264D13430002C18E /* Dream.swift */; };
 		FAE59E7C264D154B0002C18E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E7B264D154B0002C18E /* UserData.swift */; };
+		FAF5EFDE2653241500031270 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5EFDD2653241500031270 /* Utils.swift */; };
+		FAF5EFE826533BC900031270 /* NotFoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF5EFE726533BC900031270 /* NotFoundView.xib */; };
+		FAF5EFEB26533BFB00031270 /* NotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5EFEA26533BFB00031270 /* NotFoundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +131,9 @@
 		FAE59E72264D13110002C18E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		FAE59E75264D13430002C18E /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		FAE59E7B264D154B0002C18E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		FAF5EFDD2653241500031270 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		FAF5EFE726533BC900031270 /* NotFoundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotFoundView.xib; sourceTree = "<group>"; };
+		FAF5EFEA26533BFB00031270 /* NotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,7 @@
 		FA3C2945264B829D00F83AD5 /* MyMonee */ = {
 			isa = PBXGroup;
 			children = (
+				FAF5EFDC2653240700031270 /* Utils */,
 				FA975491264C26000014374F /* Fonts */,
 				FA3C296A264B94A000F83AD5 /* ViewController */,
 				FA3C295D264B82CE00F83AD5 /* View */,
@@ -200,6 +207,7 @@
 		FA3C295D264B82CE00F83AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAF5EFE126533AB800031270 /* CustomEmptyView */,
 				FA42E21F264FCB2C003977BA /* DreamCell */,
 				FAE59E5F264D02A00002C18E /* TransactionTable */,
 				FAE59E59264CFE480002C18E /* TransactionCell */,
@@ -375,6 +383,23 @@
 			path = TransactionTable;
 			sourceTree = "<group>";
 		};
+		FAF5EFDC2653240700031270 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FAF5EFDD2653241500031270 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FAF5EFE126533AB800031270 /* CustomEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				FAF5EFE726533BC900031270 /* NotFoundView.xib */,
+				FAF5EFEA26533BFB00031270 /* NotFoundView.swift */,
+			);
+			path = CustomEmptyView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -466,6 +491,7 @@
 				FAE59E70264D03690002C18E /* TransactionViewController.xib in Resources */,
 				FA3C296E264B94CD00F83AD5 /* TabBarViewController.xib in Resources */,
 				FA3C2982264B96A300F83AD5 /* HomeViewController.xib in Resources */,
+				FAF5EFE826533BC900031270 /* NotFoundView.xib in Resources */,
 				FA975486264C25E00014374F /* Poppins-BlackItalic.ttf in Resources */,
 				FA3C294D264B829E00F83AD5 /* Assets.xcassets in Resources */,
 				FA975484264C25E00014374F /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -507,6 +533,7 @@
 				FA3C296D264B94CD00F83AD5 /* TabBarViewController.swift in Sources */,
 				FA975494264C27D40014374F /* User.swift in Sources */,
 				FA42E22C2650288C003977BA /* AddDreamViewController.swift in Sources */,
+				FAF5EFDE2653241500031270 /* Utils.swift in Sources */,
 				FA3C2947264B829D00F83AD5 /* AppDelegate.swift in Sources */,
 				FA42E214264F7A05003977BA /* AddTransactionViewController.swift in Sources */,
 				FA3C2949264B829D00F83AD5 /* SceneDelegate.swift in Sources */,
@@ -520,6 +547,7 @@
 				FA76582B2650FB3B00A0942C /* TransactionDetailViewController.swift in Sources */,
 				FA7658212650F52F00A0942C /* EditDreamViewController.swift in Sources */,
 				FA42E227264FFF77003977BA /* CurrencyProtocol.swift in Sources */,
+				FAF5EFEB26533BFB00031270 /* NotFoundView.swift in Sources */,
 				FA3C294B264B829D00F83AD5 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

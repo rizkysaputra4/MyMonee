@@ -13,6 +13,7 @@ enum TransactionType {
 
 struct Transaction {
     
+    var uuid: String?
     var description: String?
     var date: String?
     var total: Double?

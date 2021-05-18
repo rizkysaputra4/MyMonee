@@ -10,6 +10,8 @@ import UIKit
 class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var dreamTable: UITableView!
+    @IBOutlet weak var emptyDataView: NotFoundView!
+    @IBOutlet weak var dreamTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,9 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dreamTable.delegate = self
         dreamTable.dataSource = self
         
+        emptyDataView.navigationDelegate = self
+        
+        
         let uiNib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         dreamTable.register(uiNib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
         
@@ -29,6 +34,8 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.dreamTable.separatorStyle = .none
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "dream updated"), object: nil)
+        
+        loadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +56,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBAction func newDream(_ sender: Any) {
         let newDreamPage = AddDreamViewController(nibName: "AddDreamViewController", bundle: nil)
-        
+        newDreamPage.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(newDreamPage, animated: true)
     }
     
@@ -59,13 +66,34 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func loadData() {
-       
+        
+        emptyDataView.type = "impian"
+        emptyDataView.contentView.backgroundColor = UIColor(named: "background")
+        emptyDataView.textViewArea.backgroundColor = UIColor(named: "background")
+        emptyDataView.isHidden = true
+        if userData.dreams.isEmpty {
+            dreamTableView.isHidden = true
+            emptyDataView.isHidden = false
+        } else {
+            dreamTableView.isHidden = false
+            emptyDataView.isHidden = true
+        }
+        
+        emptyDataView.addButton.setTitle("Tambah Impian", for: .normal)
     }
 }
 
-extension DreamViewController: CellDelegate {
+extension DreamViewController: CellDelegate, Navigations {
+    
+    func toAddNewPage() {
+        let newDreamPage = AddDreamViewController(nibName: "AddDreamViewController", bundle: nil)
+        self.navigationController?.pushViewController(newDreamPage, animated: true)
+    }
+    
+    
     func toDetailPage(thisRow: Int) {
         let dreamDetailPage = DreamDetailViewController(nibName: "DreamDetailViewController", bundle: nil)
+        dreamDetailPage.hidesBottomBarWhenPushed = true
         dreamDetailPage.thisRow = thisRow
         self.navigationController?.pushViewController(dreamDetailPage, animated: true)
     }

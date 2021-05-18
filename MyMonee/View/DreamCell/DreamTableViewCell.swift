@@ -27,6 +27,7 @@ class DreamTableViewCell: UITableViewCell {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.buttonPressed))
         cellView.isUserInteractionEnabled = true
         cellView.addGestureRecognizer(tap)
+        self.selectionStyle = .none
         
     }
 
