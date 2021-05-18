@@ -25,10 +25,8 @@ struct UserData: Codable {
     
     func countTotal(type: TransactionType) -> Double {
         var total: Double = 0
-        for transaction in self.transactions {
-            if transaction.type == type {
-                total += transaction.total ?? 0
-            }
+        for transaction in self.transactions where transaction.type == type {
+            total += transaction.total ?? 0
         }
         
        return total
@@ -54,10 +52,7 @@ struct UserData: Codable {
                 
         if type == .income {
             user.balance += num
-        }
-        else if type == .outcome {
-            user.balance -= num
-        }
+        } else if type == .outcome { user.balance -= num }
     }
 }
 

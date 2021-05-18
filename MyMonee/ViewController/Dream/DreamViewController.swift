@@ -32,7 +32,11 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dreamTable.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.9176470588, alpha: 1)
         self.dreamTable.separatorStyle = .none
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "dream updated"), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reloadData), name: NSNotification.Name(rawValue: "dream updated"),
+            object: nil
+        )
         
         loadData()
         encodeAndSaveToLocal(data: userData)
@@ -43,7 +47,16 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DreamTableViewCell.self), for: indexPath) as! DreamTableViewCell
+        let theCell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: DreamTableViewCell.self),
+            for: indexPath
+        ) as? DreamTableViewCell
+        
+        guard let cell = theCell else {
+            print("cell error")
+            return UITableViewCell()
+        }
+        
         cell.descriptionLabel.text = userData.dreams[indexPath.row].description
         cell.progressLabel.text = userData.dreams[indexPath.row].currencyToString()
         cell.currentRow = indexPath.row
@@ -89,7 +102,6 @@ extension DreamViewController: CellDelegate, Navigations {
         let newDreamPage = AddDreamViewController(nibName: "AddDreamViewController", bundle: nil)
         self.navigationController?.pushViewController(newDreamPage, animated: true)
     }
-    
     
     func toDetailPage(thisRow: Int) {
         let dreamDetailPage = DreamDetailViewController(nibName: "DreamDetailViewController", bundle: nil)

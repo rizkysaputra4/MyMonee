@@ -38,7 +38,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         emptyTransactionView.navigationDelegate = self
         emptyTransactionView.textViewArea.text = "Data kamu kosong, yuk mulai catatan kamu!"
         
-        
         let uiNib = UINib(nibName: String(describing: TransactionTableViewCell.self), bundle: nil)
         transactionTableView.register(uiNib, forCellReuseIdentifier: String(describing: TransactionTableViewCell.self))
         
@@ -52,7 +51,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
 
-    
     @objc func reloadData() {
         self.transactionTableView.reloadData()
         self.loadData()
@@ -64,7 +62,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TransactionTableViewCell.self), for: indexPath) as! TransactionTableViewCell
+        let theCell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: TransactionTableViewCell.self),
+            for: indexPath
+        ) as? TransactionTableViewCell
+        
+        guard let cell = theCell else {
+            return UITableViewCell()
+        }
        
         let total = userData.transactions[indexPath.row].transactionLabel()
         
@@ -130,4 +135,3 @@ extension HomeViewController: CellDelegate, Navigations {
     }
     
 }
-

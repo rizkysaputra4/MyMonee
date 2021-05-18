@@ -26,7 +26,13 @@ class TransactionViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TransactionTableViewCell.self), for: indexPath) as! TransactionTableViewCell
+        let theCell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: TransactionTableViewCell.self), for: indexPath
+        ) as? TransactionTableViewCell
+        
+        guard let cell = theCell else {
+            return UITableViewCell()
+        }
         
         cell.descriptionLabel.text = userData.transactions[indexPath.row].description
         cell.date.text = userData.transactions[indexPath.row].date

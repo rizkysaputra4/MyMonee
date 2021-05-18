@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol CellDelegate {
+protocol CellDelegate: AnyObject {
     func toDetailPage(thisRow: Int)
 }
 
 class DreamTableViewCell: UITableViewCell {
     
-    var cellDelegate: CellDelegate?
+    weak var cellDelegate: CellDelegate?
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!

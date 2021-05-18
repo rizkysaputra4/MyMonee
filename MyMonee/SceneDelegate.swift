@@ -59,11 +59,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    fileprivate func setupAppearanceTabBarView(){
+    fileprivate func setupAppearanceTabBarView() {
         UITabBar.appearance().tintColor = UIColor.init(named: "main")
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "main") ?? .black], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes(
+            [NSAttributedString.Key.foregroundColor: UIColor.init(named: "main") ?? .black],
+            for: .selected
+        )
         
         }
 

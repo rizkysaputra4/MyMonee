@@ -17,7 +17,7 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var arrowBackground: UIView!
     
-    var cellDelegate: CellDelegate?
+    weak var cellDelegate: CellDelegate?
     var thisRow: Int?
     
     override func awakeFromNib() {

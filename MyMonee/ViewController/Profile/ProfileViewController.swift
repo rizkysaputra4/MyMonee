@@ -77,9 +77,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
 
             present(picker, animated: true)
     }
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         
         let imageName = UUID().uuidString
@@ -97,7 +96,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         dismiss(animated: true)
     }
     
-    func loadImage(){
+    func loadImage() {
         
         guard let imgStringUrl = getImgUrlFromLocal() else {
             print("url from userdefault")

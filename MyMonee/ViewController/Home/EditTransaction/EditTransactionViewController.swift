@@ -77,7 +77,7 @@ class EditTransactionViewController: UIViewController {
         transaction.uuid = userData.transactions[thisRow!].uuid
         
         userData.transactions[thisRow!] = self.transaction
-        updateUserBalance(num: self.transaction.total! , type: self.transaction.type!)
+        updateUserBalance(num: self.transaction.total!, type: self.transaction.type!)
 
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         
@@ -108,8 +108,7 @@ class EditTransactionViewController: UIViewController {
         
         if type == .income {
             userData.user.balance += num
-        }
-        else if type == .outcome {
+        } else if type == .outcome {
             userData.user.balance -= num
         }
     }

@@ -81,7 +81,7 @@ func encodeAndSaveToLocal(data: UserData) {
         return
     }
     let json = String(data: jsonData, encoding: String.Encoding.utf8)
-    PersistData().saveValue(forKey: .mainData , value: json!, userID: "user")
+    PersistData().saveValue(forKey: .mainData, value: json!, userID: "user")
 }
 
 func getAndDecodeFromLocal() -> UserData? {
@@ -102,4 +102,3 @@ func getAndDecodeFromLocal() -> UserData? {
     
     return dataConverted
 }
-

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Navigations {
+protocol Navigations: AnyObject {
     func toAddNewPage()
 }
 
@@ -18,7 +18,7 @@ class NotFoundView: UIView {
     @IBOutlet var contentView: UIView!
     
     var type: String!
-    var navigationDelegate: Navigations!
+    weak var navigationDelegate: Navigations!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

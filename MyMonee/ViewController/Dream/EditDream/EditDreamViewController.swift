@@ -80,7 +80,6 @@ class EditDreamViewController: UIViewController {
         dreamDescription.text = userData.dreams[thisRow!].description
         targetTotal.text = String(userData.dreams[thisRow!].target).filter("1234567890".contains)
         
-        
         updateProgressSlider.minimumValue = 0
         updateProgressSlider.maximumValue = Float(userData.dreams[thisRow!].target)
         updateProgressSlider.value = Float(userData.dreams[thisRow!].saved)

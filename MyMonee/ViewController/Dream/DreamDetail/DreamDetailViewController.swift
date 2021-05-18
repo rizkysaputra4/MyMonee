@@ -24,7 +24,12 @@ class DreamDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(viewDidLoad), name: NSNotification.Name(rawValue: "updateDetail"), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(viewDidLoad),
+            name: NSNotification.Name(rawValue: "updateDetail"),
+            object: nil
+        )
         
         loadViewStyle()
         archieveBtnHandler()
@@ -61,7 +66,7 @@ class DreamDetailViewController: UIViewController {
             var newTransaction = Transaction()
             newTransaction.description = currentDream.description
             newTransaction.total = currentDream.saved
-            newTransaction.date = getCurrentDateAndTime()
+            newTransaction.date = getLocalTimeNow()
             newTransaction.uuid = randomString(length: 8)
             newTransaction.type = .outcome
             
@@ -74,7 +79,6 @@ class DreamDetailViewController: UIViewController {
             encodeAndSaveToLocal(data: userData)
             dismiss()
         }
-        
     }
     
     func progressArchieved() {
