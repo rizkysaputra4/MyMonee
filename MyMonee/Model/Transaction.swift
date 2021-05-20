@@ -16,11 +16,11 @@ struct Transaction: Codable {
     
     var uuid: String?
     var description: String?
-    var date: String?
+    var date: Date?
     var total: Double?
     var type: TransactionType?
     
-    init(description: String, date: String, total: Double, type: TransactionType) {
+    init(description: String, date: Date, total: Double, type: TransactionType) {
         self.description = description
         self.date = date
         self.total = total
@@ -29,20 +29,15 @@ struct Transaction: Codable {
     
     init() {}
     
-    func getCurrencyString(number: Double) -> String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.decimalSeparator = ","
-        currencyFormatter.groupingSeparator = "."
-        currencyFormatter.groupingSize = 3
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.maximumFractionDigits = 2
-        
-        return currencyFormatter.string(from: NSNumber(value: number))!
+}
+
+extension Transaction: DateUtil, CurrencyUtil {
+    
+    func currencyToString() -> String {
+        return currencyFormatter().string(from: NSNumber(value: self.total ?? 0))!
     }
     
-    func transactionLabel() -> String {
-        return "Rp. \(getCurrencyString(number: self.total ?? 0))"
+    func dateToString() -> String {
+        return dateFormated(date: self.date)
     }
-
 }

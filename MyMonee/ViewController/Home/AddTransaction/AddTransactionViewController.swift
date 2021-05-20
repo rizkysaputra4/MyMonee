@@ -57,7 +57,7 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
         transaction.type = .income
     normalStyle()
     incomeButton.radiusBorder(borderWidth: 4, borderColor: UIColor.init(named: "main")?.cgColor ?? #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1))
-    
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
         isFilled()
     }
     
@@ -80,7 +80,7 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
     @IBAction func savePressed(_ sender: Any) {
         transaction.description = descriptionInput.text
         transaction.total = Double(totalInput.text!) ?? 0
-        transaction.date = getLocalTimeNow()
+        transaction.date = Date()
         transaction.uuid = randomString(length: 8)
         userData.transactions.append(transaction)
         updateUserBalance(num: transaction.total!, type: transaction.type!)
@@ -98,44 +98,5 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
     func updateUserBalance(num: Double, type: TransactionType) {
         userData.updateBalance(num: num, type: type)
         
-    }
-}
-
-extension UIButton {
-
-    func centerImageAndButton(_ gap: CGFloat, imageOnTop: Bool) {
-
-      guard let imageView = self.currentImage,
-      let titleLabel = self.titleLabel?.text else { return }
-
-      let sign: CGFloat = imageOnTop ? 1 : -1
-        self.titleEdgeInsets = UIEdgeInsets.init(top: (imageView.size.height + gap) * sign, left: -imageView.size.width, bottom: 0, right: 0)
-
-        let titleSize = titleLabel.size(withAttributes: [NSAttributedString.Key.font: self.titleLabel!.font!])
-        self.imageEdgeInsets = UIEdgeInsets.init( top: -(titleSize.height + gap) * sign, left: 0, bottom: 0, right: -titleSize.width)
-    }
-    
-    func radiusBorder(borderWidth: Int, borderColor: CGColor) {
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = CGFloat(borderWidth)
-        self.layer.borderColor = borderColor
-    }
-    
-    func dropShadow(scale: Bool = true) {
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.3
-        layer.shadowOffset = CGSize(width: 0, height: 1)
-        layer.shadowRadius = 2
-
-        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
-        layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
-      }
-}
-
-extension UITextField {
-    func numberOnly() {
-        return self.text = self.text?.filter("1234567890".contains)
     }
 }

@@ -7,26 +7,21 @@
 
 import Foundation
 
-class User: CurrencyFormat, Codable {
+class User: Codable {
     
     var name: String
     var balance: Double
+    var photoLink: String?
     
     init(name: String, balance: Double) {
         self.name = name
         self.balance = balance
     }
     
+}
+
+extension User: CurrencyUtil {
     func currencyToString() -> String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.decimalSeparator = ","
-        currencyFormatter.groupingSeparator = "."
-        currencyFormatter.groupingSize = 3
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.maximumFractionDigits = 2
-        
-        return "Rp. \(currencyFormatter.string(from: NSNumber(value: self.balance))!)"
+        return "Rp. \(currencyFormatter().string(from: NSNumber(value: self.balance))!)"
     }
-    
 }

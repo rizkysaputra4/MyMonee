@@ -13,8 +13,6 @@ class EditDreamViewController: UIViewController {
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var dreamDescription: UITextField!
     @IBOutlet weak var targetTotal: UITextField!
-    @IBOutlet weak var updateProgressSlider: UISlider!
-    @IBOutlet weak var updateProgressLabel: UILabel!
     
     var thisRow: Int?
     
@@ -50,8 +48,13 @@ class EditDreamViewController: UIViewController {
         }
         
     }
+    
     @IBAction func editPressed(_ sender: Any) {
-        let dream = Dream(description: dreamDescription.text!, target: userData.dreams[thisRow!].target, saved: Double(updateProgressSlider.value))
+        let dream = Dream(
+            description: dreamDescription.text!,
+            target: Double(targetTotal.text!) ?? userData.dreams[thisRow!].target
+        )
+        
         userData.dreams[thisRow!] = dream
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
@@ -72,18 +75,10 @@ class EditDreamViewController: UIViewController {
         
     }
     
-    @IBAction func updateProgress(_ sender: Any) {
-        updateProgressLabel.text = toStringCurrency(number: Double(updateProgressSlider.value))
-    }
-    
     func loadDefaultValue() {
         dreamDescription.text = userData.dreams[thisRow!].description
-        targetTotal.text = String(userData.dreams[thisRow!].target).filter("1234567890".contains)
-        
-        updateProgressSlider.minimumValue = 0
-        updateProgressSlider.maximumValue = Float(userData.dreams[thisRow!].target)
-        updateProgressSlider.value = Float(userData.dreams[thisRow!].saved)
-        updateProgressLabel.text = toStringCurrency(number: Double(updateProgressSlider.value))
+        targetTotal.text = String(String(userData.dreams[thisRow!].target).filter("1234567890".contains).dropLast()
+)
     }
     
     func loadStyle() {

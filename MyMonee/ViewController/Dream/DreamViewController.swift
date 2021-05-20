@@ -17,20 +17,10 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        let tableNib = UINib(nibName: String(describing: dreamTable.self), bundle: nil)
-        
-        dreamTable.register(tableNib, forCellReuseIdentifier: String(describing: TransactionViewController.self))
-        
-        dreamTable.delegate = self
-        dreamTable.dataSource = self
-        
         emptyDataView.navigationDelegate = self
         
         let uiNib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         dreamTable.register(uiNib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
-        
-        dreamTable.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.9176470588, alpha: 1)
-        self.dreamTable.separatorStyle = .none
         
         NotificationCenter.default.addObserver(
             self,
@@ -58,16 +48,20 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         cell.descriptionLabel.text = userData.dreams[indexPath.row].description
-        cell.progressLabel.text = userData.dreams[indexPath.row].currencyToString()
+        cell.progressLabel.text = userData.getDreamProgressLabel(dreamIndex: indexPath.row)
         cell.currentRow = indexPath.row
         
-        let dreamProgress = userData.dreams[indexPath.row].saved / userData.dreams[indexPath.row].target
+        let dreamProgress = userData.user.balance / userData.dreams[indexPath.row].target
         cell.progress.progress = Float(dreamProgress)
         cell.cellDelegate = self
         return cell
     }
 
     @IBAction func newDream(_ sender: Any) {
+        pushToNewDreamPage()
+    }
+    
+    func pushToNewDreamPage() {
         let newDreamPage = AddDreamViewController(nibName: "AddDreamViewController", bundle: nil)
         newDreamPage.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(newDreamPage, animated: true)
@@ -79,7 +73,23 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func loadData() {
+        loadEmptyDataView()
+        loadTable()
+    }
+    
+    func loadTable() {
+        let tableNib = UINib(nibName: String(describing: dreamTable.self), bundle: nil)
         
+        dreamTable.register(tableNib, forCellReuseIdentifier: String(describing: TransactionViewController.self))
+        
+        dreamTable.delegate = self
+        dreamTable.dataSource = self
+        
+        dreamTable.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.9176470588, alpha: 1)
+        self.dreamTable.separatorStyle = .none
+    }
+    
+    func loadEmptyDataView() {
         emptyDataView.textViewArea.text = "Data kamu kosong, yuk mulai buat impian kamu!"
         emptyDataView.contentView.backgroundColor = UIColor(named: "background")
         emptyDataView.textViewArea.backgroundColor = UIColor(named: "background")
@@ -91,16 +101,41 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
             dreamTableView.isHidden = false
             emptyDataView.isHidden = true
         }
-        
         emptyDataView.addButton.setTitle("Tambah Impian", for: .normal)
     }
 }
 
 extension DreamViewController: CellDelegate, Navigations {
     
+    func deleteDream(thisRow: Int) {
+        userData.dreams.remove(at: thisRow)
+        encodeAndSaveToLocal(data: userData)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+    }
+    
+    func archievedDream(thisRow: Int) {
+        let currentDream = userData.dreams[thisRow]
+        if userData.user.balance >= currentDream.target {
+            var newTransaction = Transaction()
+            newTransaction.description = currentDream.description
+            newTransaction.total = currentDream.target
+            newTransaction.date = Date()
+            newTransaction.uuid = randomString(length: 8)
+            newTransaction.type = .outcome
+            
+            userData.transactions.append(newTransaction)
+            userData.dreams.remove(at: thisRow)
+            userData.updateBalance(num: newTransaction.total!, type: newTransaction.type!)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            
+            encodeAndSaveToLocal(data: userData)
+        }
+    }
+    
     func toAddNewPage() {
-        let newDreamPage = AddDreamViewController(nibName: "AddDreamViewController", bundle: nil)
-        self.navigationController?.pushViewController(newDreamPage, animated: true)
+        pushToNewDreamPage()
     }
     
     func toDetailPage(thisRow: Int) {

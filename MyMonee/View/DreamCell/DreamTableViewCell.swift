@@ -9,6 +9,8 @@ import UIKit
 
 protocol CellDelegate: AnyObject {
     func toDetailPage(thisRow: Int)
+    func deleteDream(thisRow: Int)
+    func archievedDream(thisRow: Int)
 }
 
 class DreamTableViewCell: UITableViewCell {
@@ -18,26 +20,46 @@ class DreamTableViewCell: UITableViewCell {
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var cellView: UIView!
-    //    var userDataReceived: UserData?
+    @IBOutlet weak var archievedButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var detailBarView: UIView!
+    
     var currentRow: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.buttonPressed))
-        cellView.isUserInteractionEnabled = true
-        cellView.addGestureRecognizer(tap)
-        self.selectionStyle = .none
         
+        detailBarView.isUserInteractionEnabled = true
+        detailBarView.addGestureRecognizer(tap)
+        self.selectionStyle = .none
+       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+        enabledOrDisableBtn()
+    }
+    
+    func enabledOrDisableBtn() {
+        if userData.user.balance < userData.dreams[self.currentRow!].target {
+            archievedButton.disabled()
+        } else {
+            archievedButton.enabled()
+        }
     }
     
     @objc func buttonPressed() {
         cellDelegate?.toDetailPage(thisRow: currentRow!)
     }
+    
+    @IBAction func archievedBtnPressed(_ sender: Any) {
+        cellDelegate?.archievedDream(thisRow: currentRow!)
+    }
+    
+    @IBAction func deleteBtnPressed(_ sender: Any) {
+        cellDelegate?.deleteDream(thisRow: currentRow!)
+    }
+    
 }

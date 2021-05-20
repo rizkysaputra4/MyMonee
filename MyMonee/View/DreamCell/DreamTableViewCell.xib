@@ -26,20 +26,20 @@
                         <rect key="frame" x="16" y="5" width="288" height="96"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C71-TK-kUj">
-                                <rect key="frame" x="10" y="15" width="245" height="66"/>
+                                <rect key="frame" x="10" y="15" width="198" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sb4-7D-ZZh" userLabel="Description">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="193" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="bFE-za-ITP">
-                                        <rect key="frame" x="0.0" y="31" width="245" height="4"/>
+                                        <rect key="frame" x="0.0" y="31" width="198" height="4"/>
                                         <color key="progressTintColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmA-Ow-vQb" userLabel="Progres">
-                                        <rect key="frame" x="0.0" y="45" width="240" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="45" width="193" height="15.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                         <color key="textColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -63,24 +63,49 @@
                                     <constraint firstAttribute="trailing" secondItem="bFE-za-ITP" secondAttribute="trailing" id="yfC-2X-FxX"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDv-dd-Sdf">
-                                <rect key="frame" x="270" y="40" width="8" height="16"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-SX-ArU">
+                                <rect key="frame" x="208" y="0.0" width="80" height="96"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cf-iZ-1j3">
+                                        <rect key="frame" x="9" y="32" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="P67-fw-dhG"/>
+                                            <constraint firstAttribute="width" constant="32" id="b0b-RE-EDL"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="checklist"/>
+                                        <connections>
+                                            <action selector="archievedBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gT6-a5-cmt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFP-ZR-7RQ">
+                                        <rect key="frame" x="46" y="32" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="CRe-KC-9hP"/>
+                                            <constraint firstAttribute="width" constant="32" id="f4d-ci-B2C"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="trashbin"/>
+                                        <connections>
+                                            <action selector="deleteBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="77b-l8-tIx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="8" id="WcO-lX-FoU"/>
-                                    <constraint firstAttribute="height" constant="16" id="Zc7-TC-If1"/>
+                                    <constraint firstItem="XFP-ZR-7RQ" firstAttribute="centerY" secondItem="aYb-SX-ArU" secondAttribute="centerY" id="8xb-3s-3Fp"/>
+                                    <constraint firstItem="XFP-ZR-7RQ" firstAttribute="leading" secondItem="8cf-iZ-1j3" secondAttribute="trailing" constant="5" id="Pkl-9H-XiC"/>
+                                    <constraint firstItem="8cf-iZ-1j3" firstAttribute="centerY" secondItem="aYb-SX-ArU" secondAttribute="centerY" id="dcu-RN-Gfg"/>
+                                    <constraint firstAttribute="width" constant="80" id="jtj-uK-aDv"/>
+                                    <constraint firstAttribute="trailing" secondItem="XFP-ZR-7RQ" secondAttribute="trailing" constant="2" id="lug-As-wQP"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="arrow_next_24px"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nkY-ky-mWL"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qDv-dd-Sdf" firstAttribute="centerY" secondItem="bFE-za-ITP" secondAttribute="centerY" id="1lL-3l-pbl"/>
-                            <constraint firstItem="qDv-dd-Sdf" firstAttribute="leading" secondItem="C71-TK-kUj" secondAttribute="trailing" constant="15" id="7mQ-Sk-kNs"/>
+                            <constraint firstItem="aYb-SX-ArU" firstAttribute="top" secondItem="tN8-H2-EqQ" secondAttribute="top" id="BYC-PV-wj6"/>
+                            <constraint firstAttribute="trailing" secondItem="aYb-SX-ArU" secondAttribute="trailing" id="IGC-JA-oPm"/>
                             <constraint firstItem="C71-TK-kUj" firstAttribute="leading" secondItem="tN8-H2-EqQ" secondAttribute="leading" constant="10" id="Oh9-en-OUd"/>
-                            <constraint firstAttribute="trailing" secondItem="qDv-dd-Sdf" secondAttribute="trailing" constant="10" id="SRo-Pe-Xsf"/>
+                            <constraint firstItem="aYb-SX-ArU" firstAttribute="leading" secondItem="C71-TK-kUj" secondAttribute="trailing" id="fIE-Ka-y8e"/>
+                            <constraint firstAttribute="bottom" secondItem="aYb-SX-ArU" secondAttribute="bottom" id="pCx-Y3-j3s"/>
                             <constraint firstItem="C71-TK-kUj" firstAttribute="centerY" secondItem="tN8-H2-EqQ" secondAttribute="centerY" id="taE-hH-BUa"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -100,8 +125,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <connections>
+                <outlet property="archievedButton" destination="8cf-iZ-1j3" id="CUK-D8-XaC"/>
                 <outlet property="cellView" destination="tN8-H2-EqQ" id="sKq-ks-op7"/>
+                <outlet property="deleteButton" destination="XFP-ZR-7RQ" id="Fhz-Or-dLJ"/>
                 <outlet property="descriptionLabel" destination="Sb4-7D-ZZh" id="QJf-un-xHe"/>
+                <outlet property="detailBarView" destination="C71-TK-kUj" id="uQy-iq-rvs"/>
                 <outlet property="progress" destination="bFE-za-ITP" id="1NX-VR-BV1"/>
                 <outlet property="progressLabel" destination="hmA-Ow-vQb" id="tHR-EJ-gR7"/>
             </connections>
@@ -109,7 +137,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow_next_24px" width="10" height="18"/>
+        <image name="checklist" width="32" height="32"/>
+        <image name="trashbin" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

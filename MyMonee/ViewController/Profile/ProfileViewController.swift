@@ -72,15 +72,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     
     @IBAction func editImagePressed(_ sender: Any) {
         let picker = UIImagePickerController()
-            picker.allowsEditing = true
-            picker.delegate = self
+        picker.allowsEditing = true
+        picker.delegate = self
 
-            present(picker, animated: true)
+        present(picker, animated: true)
     }
         
-    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else { return }
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            print("error choosing image")
+            return
+        }
+  
         let imageName = UUID().uuidString
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
         
@@ -91,14 +94,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         let data = try? Data(contentsOf: imagePath) 
         self.photoProfile.image = UIImage(data: data!)
         
-        saveImgUrlToLocal(imgURL: imagePath.absoluteString)
+        userData.user.photoLink = imagePath.absoluteString
+        encodeAndSaveToLocal(data: userData)
         
         dismiss(animated: true)
     }
     
     func loadImage() {
         
-        guard let imgStringUrl = getImgUrlFromLocal() else {
+        guard let imgStringUrl = userData.user.photoLink else {
             print("url from userdefault")
             return setDefaultPhotoProfile()
         }

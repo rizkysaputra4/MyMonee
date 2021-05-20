@@ -35,7 +35,7 @@ class TransactionViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         cell.descriptionLabel.text = userData.transactions[indexPath.row].description
-        cell.date.text = userData.transactions[indexPath.row].date
+        cell.date.text = userData.transactions[indexPath.row].dateToString()
         
         return cell
     }

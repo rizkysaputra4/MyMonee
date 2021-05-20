@@ -7,16 +7,6 @@
 
 import Foundation
 
-func getCurrentDateAndTime() -> String {
-    let currentDateTime = Date()
-
-    let formatter = DateFormatter()
-    formatter.timeStyle = .medium
-    formatter.dateStyle = .long
-
-    return formatter.string(from: currentDateTime)
-}
-
 func toStringCurrency(number: Double) -> String {
     let currencyFormatter = NumberFormatter()
     currencyFormatter.usesGroupingSeparator = true
@@ -55,14 +45,28 @@ func currentTime() -> String {
     return "Pagi"
 }
 
-func getLocalTimeNow() -> String {
-    let now = Date()
-
+func dateFormated(date: Date?) -> String {
+    
+    guard let thisDate = date else {
+        return "--"
+    }
+    
     let formatter = DateFormatter()
     formatter.timeZone = TimeZone.current
     formatter.dateFormat = "yyyy-MM-dd - HH:mm"
-    let dateString = formatter.string(from: now)
+    let dateString = formatter.string(from: thisDate)
     return dateString
+}
+
+func currencyFormatter() -> NumberFormatter {
+    let currencyFormatter = NumberFormatter()
+    currencyFormatter.usesGroupingSeparator = true
+    currencyFormatter.decimalSeparator = ","
+    currencyFormatter.groupingSeparator = "."
+    currencyFormatter.groupingSize = 3
+    currencyFormatter.usesGroupingSeparator = true
+    currencyFormatter.maximumFractionDigits = 2
+    return currencyFormatter
 }
 
 func randomString(length: Int) -> String {
@@ -73,32 +77,4 @@ func randomString(length: Int) -> String {
         randomString.append(letters[randomNumber])
     }
     return randomString
-}
-
-func encodeAndSaveToLocal(data: UserData) {
-    let jsonEncoder = JSONEncoder()
-    guard let jsonData = try? jsonEncoder.encode(data) else {
-        return
-    }
-    let json = String(data: jsonData, encoding: String.Encoding.utf8)
-    PersistData().saveValue(forKey: .mainData, value: json!, userID: "user")
-}
-
-func getAndDecodeFromLocal() -> UserData? {
-    
-    let dataParsed: String? = PersistData().readValue(forKey: .mainData, userID: "user")
-    
-    guard let stringUserData = dataParsed else {
-        print("nil when parsing user data from storage")
-        return nil
-    }
-    
-    let jsonDecoder = JSONDecoder()
-   
-    guard  let dataConverted = try? jsonDecoder.decode(UserData.self, from: stringUserData.data(using: .utf8)!) else {
-        print("error when convert data string to object")
-        return nil
-    }
-    
-    return dataConverted
 }

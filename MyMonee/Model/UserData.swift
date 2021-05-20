@@ -37,22 +37,29 @@ struct UserData: Codable {
         return "Rp. \(formatter.string(from: NSNumber(value: countTotal(type: type)))!)"
     }
     
-    func currencyFormatter() -> NumberFormatter {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.decimalSeparator = ","
-        currencyFormatter.groupingSeparator = "."
-        currencyFormatter.groupingSize = 3
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.maximumFractionDigits = 2
-        return currencyFormatter
-    }
-    
     func updateBalance(num: Double, type: TransactionType) {
                 
         if type == .income {
             user.balance += num
         } else if type == .outcome { user.balance -= num }
+    }
+    
+    func getDreamProgress(dreamIndex: Int) -> Double {
+        let progress = self.user.balance / self.dreams[dreamIndex].target
+        if progress > 1 {
+            return 1
+        }
+        return progress
+    }
+    
+    func getDreamProgressLabel(dreamIndex: Int) -> String {
+        let formatter = currencyFormatter()
+        let stringTarget = formatter.string(
+            from: NSNumber(value: self.dreams[dreamIndex].target))!
+        let stringSaved = formatter.string(
+            from: NSNumber(value: self.user.balance))!
+        
+        return "IDR \(stringSaved) / IDR \(stringTarget)"
     }
 }
 

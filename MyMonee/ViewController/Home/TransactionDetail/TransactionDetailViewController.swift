@@ -44,11 +44,11 @@ class TransactionDetailViewController: UIViewController {
         self.descriptionLabel.text = userData.transactions[thisRow!].description
         loadArrowIcon()
         transactionId.text = userData.transactions[thisRow!].uuid
-        transactionDate.text = userData.transactions[thisRow!].date
+        transactionDate.text = userData.transactions[thisRow!].dateToString()
     }
     
     func loadArrowIcon() {
-        let total = userData.transactions[thisRow!].transactionLabel()
+        let total = userData.transactions[thisRow!].currencyToString()
         if userData.transactions[thisRow!].type == .income {
             transactionTypeView.layer.backgroundColor = #colorLiteral(red: 0.1294117647, green: 0.5882352941, blue: 0.3254901961, alpha: 0.2)
             transactionTypeImg.image = UIImage(named: "arrow_upward_24px")

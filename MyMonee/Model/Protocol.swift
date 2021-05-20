@@ -7,6 +7,10 @@
 
 import Foundation
 
-protocol CurrencyFormat {
+protocol CurrencyUtil {
     func currencyToString() -> String
+}
+
+protocol DateUtil {
+    func dateToString() -> String
 }

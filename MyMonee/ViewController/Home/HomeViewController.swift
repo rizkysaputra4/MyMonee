@@ -71,10 +71,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return UITableViewCell()
         }
        
-        let total = userData.transactions[indexPath.row].transactionLabel()
+        let total = userData.transactions[indexPath.row].currencyToString()
         
         cell.descriptionLabel.text = userData.transactions[indexPath.row].description
-        cell.date.text = userData.transactions[indexPath.row].date
+        cell.date.text = userData.transactions[indexPath.row].dateToString()
         cell.thisRow = indexPath.row
         
         if userData.transactions[indexPath.row].type == .income {
@@ -95,6 +95,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func newTransaction(_ sender: Any) {
+       pushToAddNewPage()
+    }
+    
+    func pushToAddNewPage() {
         let newTransactionPage = AddTransactionViewController(nibName: "AddTransactionViewController", bundle: nil)
         newTransactionPage.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(newTransactionPage, animated: true)
@@ -120,10 +124,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 extension HomeViewController: CellDelegate, Navigations {
+    
+    func deleteDream(thisRow: Int) {
+        return
+        
+    }
+    
+    func archievedDream(thisRow: Int) {
+        return
+    }
 
     func toAddNewPage() {
-        let newTransactionpage = AddTransactionViewController(nibName: "AddTransactionViewController", bundle: nil)
-        self.navigationController?.pushViewController(newTransactionpage, animated: true)
+        pushToAddNewPage()
     }
     
     func toDetailPage(thisRow: Int) {

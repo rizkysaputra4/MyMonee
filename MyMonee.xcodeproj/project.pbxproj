@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA35BDB22654E61F00F36E78 /* ButtonDesignExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35BDB12654E61F00F36E78 /* ButtonDesignExtension.swift */; };
+		FA35BDB62654E66200F36E78 /* TextFieldDesignExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35BDB52654E66200F36E78 /* TextFieldDesignExtension.swift */; };
 		FA3C2947264B829D00F83AD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C2946264B829D00F83AD5 /* AppDelegate.swift */; };
 		FA3C2949264B829D00F83AD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C2948264B829D00F83AD5 /* SceneDelegate.swift */; };
 		FA3C294B264B829D00F83AD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C294A264B829D00F83AD5 /* ContentView.swift */; };
@@ -27,7 +29,7 @@
 		FA42E215264F7A05003977BA /* AddTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E213264F7A05003977BA /* AddTransactionViewController.xib */; };
 		FA42E222264FCB85003977BA /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E220264FCB85003977BA /* DreamTableViewCell.swift */; };
 		FA42E223264FCB85003977BA /* DreamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E221264FCB85003977BA /* DreamTableViewCell.xib */; };
-		FA42E227264FFF77003977BA /* CurrencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E226264FFF77003977BA /* CurrencyProtocol.swift */; };
+		FA42E227264FFF77003977BA /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E226264FFF77003977BA /* Protocol.swift */; };
 		FA42E22C2650288C003977BA /* AddDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E22A2650288C003977BA /* AddDreamViewController.swift */; };
 		FA42E2312650294B003977BA /* AddDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E2302650294B003977BA /* AddDreamViewController.xib */; };
 		FA42E23C26502DE1003977BA /* DreamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E23A26502DE1003977BA /* DreamDetailViewController.swift */; };
@@ -72,6 +74,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA35BDB12654E61F00F36E78 /* ButtonDesignExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDesignExtension.swift; sourceTree = "<group>"; };
+		FA35BDB52654E66200F36E78 /* TextFieldDesignExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDesignExtension.swift; sourceTree = "<group>"; };
 		FA3C2943264B829D00F83AD5 /* MyMonee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMonee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3C2946264B829D00F83AD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA3C2948264B829D00F83AD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +98,7 @@
 		FA42E213264F7A05003977BA /* AddTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionViewController.xib; sourceTree = "<group>"; };
 		FA42E220264FCB85003977BA /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
 		FA42E221264FCB85003977BA /* DreamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamTableViewCell.xib; sourceTree = "<group>"; };
-		FA42E226264FFF77003977BA /* CurrencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyProtocol.swift; sourceTree = "<group>"; };
+		FA42E226264FFF77003977BA /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		FA42E22A2650288C003977BA /* AddDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDreamViewController.swift; sourceTree = "<group>"; };
 		FA42E2302650294B003977BA /* AddDreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddDreamViewController.xib; path = "/Users/RizkySaputra/Data/Code/MandiriAcademy/IOS/Final Project/MyMonee/MyMonee/ViewController/Dream/AddDream/AddDreamViewController.xib"; sourceTree = "<absolute>"; };
 		FA42E23A26502DE1003977BA /* DreamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamDetailViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA35BDB02654E60200F36E78 /* CustomDesign */ = {
+			isa = PBXGroup;
+			children = (
+				FA35BDB12654E61F00F36E78 /* ButtonDesignExtension.swift */,
+				FA35BDB52654E66200F36E78 /* TextFieldDesignExtension.swift */,
+			);
+			path = CustomDesign;
+			sourceTree = "<group>";
+		};
 		FA3C293A264B829D00F83AD5 = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +214,7 @@
 				FAE59E72264D13110002C18E /* Transaction.swift */,
 				FAE59E75264D13430002C18E /* Dream.swift */,
 				FAE59E7B264D154B0002C18E /* UserData.swift */,
-				FA42E226264FFF77003977BA /* CurrencyProtocol.swift */,
+				FA42E226264FFF77003977BA /* Protocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +222,7 @@
 		FA3C295D264B82CE00F83AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA35BDB02654E60200F36E78 /* CustomDesign */,
 				FAF5EFE126533AB800031270 /* CustomEmptyView */,
 				FA42E21F264FCB2C003977BA /* DreamCell */,
 				FAE59E5F264D02A00002C18E /* TransactionTable */,
@@ -529,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA35BDB22654E61F00F36E78 /* ButtonDesignExtension.swift in Sources */,
 				FA76583526510BD800A0942C /* EditTransactionViewController.swift in Sources */,
 				FA42E222264FCB85003977BA /* DreamTableViewCell.swift in Sources */,
 				FAF5EFF326538BF000031270 /* Persist.swift in Sources */,
@@ -545,12 +560,13 @@
 				FAE59E6F264D03690002C18E /* TransactionViewController.swift in Sources */,
 				FAE59E73264D13110002C18E /* Transaction.swift in Sources */,
 				FA3C298C264B999600F83AD5 /* ProfileViewController.swift in Sources */,
+				FA35BDB62654E66200F36E78 /* TextFieldDesignExtension.swift in Sources */,
 				FA3C2987264B998900F83AD5 /* DreamViewController.swift in Sources */,
 				FAE59E5C264CFE790002C18E /* TransactionTableViewCell.swift in Sources */,
 				FAE59E76264D13430002C18E /* Dream.swift in Sources */,
 				FA76582B2650FB3B00A0942C /* TransactionDetailViewController.swift in Sources */,
 				FA7658212650F52F00A0942C /* EditDreamViewController.swift in Sources */,
-				FA42E227264FFF77003977BA /* CurrencyProtocol.swift in Sources */,
+				FA42E227264FFF77003977BA /* Protocol.swift in Sources */,
 				FAF5EFEB26533BFB00031270 /* NotFoundView.swift in Sources */,
 				FA3C294B264B829D00F83AD5 /* ContentView.swift in Sources */,
 			);
@@ -696,7 +712,7 @@
 				DEVELOPMENT_TEAM = T52Z585B79;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MyMonee/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -718,7 +734,7 @@
 				DEVELOPMENT_TEAM = T52Z585B79;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MyMonee/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

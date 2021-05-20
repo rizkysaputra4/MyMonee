@@ -47,7 +47,7 @@ class AddDreamViewController: UIViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
-        let dream = Dream(description: descriptionInput.text!, target: Double(targetTotal.text!) ?? 0, saved: 0)
+        let dream = Dream(description: descriptionInput.text!, target: Double(targetTotal.text!) ?? 0)
         userData.dreams.append(dream)
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dream updated"), object: nil)

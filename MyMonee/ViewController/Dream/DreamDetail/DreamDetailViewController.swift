@@ -33,7 +33,6 @@ class DreamDetailViewController: UIViewController {
         
         loadViewStyle()
         archieveBtnHandler()
-    
     }
 
     @IBAction func backPressed(_ sender: Any) {
@@ -51,22 +50,22 @@ class DreamDetailViewController: UIViewController {
     }
     
     func archieveBtnHandler() {
-        if userData.dreams[thisRow!].getDreamProgress() < 1 {
+        if userData.getDreamProgress(dreamIndex: thisRow!) < 1 {
             dreamArchieved.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             dreamArchieved.isEnabled = false
         } else {
+            dreamArchieved.isEnabled = true
             dreamArchieved.layer.backgroundColor = UIColor.init(named: "main")?.cgColor
         }
     }
     
     @IBAction func archieveBtnPressed(_ sender: Any) {
         let currentDream = userData.dreams[thisRow!]
-        if currentDream.saved >= currentDream.target {
-            
+        if userData.user.balance >= currentDream.target {
             var newTransaction = Transaction()
             newTransaction.description = currentDream.description
-            newTransaction.total = currentDream.saved
-            newTransaction.date = getLocalTimeNow()
+            newTransaction.total = currentDream.target
+            newTransaction.date = Date()
             newTransaction.uuid = randomString(length: 8)
             newTransaction.type = .outcome
             
@@ -81,22 +80,16 @@ class DreamDetailViewController: UIViewController {
         }
     }
     
-    func progressArchieved() {
-        progressViewBar.progress = 1
-        progressPercentage.text = "100.0"
-        progressBarLabel.text = userData.dreams[thisRow!].currencyToString()
-    }
-    
     func loadViewStyle() {
         let thisDream = userData.dreams[thisRow!]
         descriptionLabel.text = thisDream.description
-        price.text = thisDream.getStringTarget()
+        price.text = thisDream.currencyToString()
         
-        let progressPercent = String(thisDream.getDreamProgress() * 100)
+        let progressPercent = String(userData.getDreamProgress(dreamIndex: thisRow!) * 100)
         progressPercentage.text = "\(progressPercent) %"
         
-        progressViewBar.progress = Float(thisDream.getDreamProgress())
-        progressBarLabel.text = thisDream.currencyToString()
+        progressViewBar.progress = Float(userData.getDreamProgress(dreamIndex: thisRow!))
+        progressBarLabel.text = userData.getDreamProgressLabel(dreamIndex: thisRow!)
         progressViewBar.progressTintColor = UIColor.init(named: "main")
         
         heartView.layer.borderWidth = 1
