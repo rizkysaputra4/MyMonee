@@ -84,9 +84,14 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
         transaction.uuid = randomString(length: 8)
         userData.transactions.append(transaction)
         updateUserBalance(num: transaction.total!, type: transaction.type!)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        NetworkService().postTransaction(newTransaction: transaction) { () in
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                
+                encodeAndSaveToLocal(data: userData)
+            }
+        }
         
-        encodeAndSaveToLocal(data: userData)
         dismiss()
     }
     

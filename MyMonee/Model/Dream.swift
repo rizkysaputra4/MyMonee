@@ -17,7 +17,6 @@ class Dream: Codable {
         self.target = target
         
     }
-    
 }
 
 extension Dream: CurrencyUtil {

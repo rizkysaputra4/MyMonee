@@ -29,6 +29,17 @@ struct Transaction: Codable {
     
     init() {}
     
+    func encodeToJson() -> Data? {
+        guard let jsonData = try? JSONEncoder().encode(self) else {
+            print("error when encoding data")
+            return nil
+        }
+        
+        let stringJson = String(data: jsonData, encoding: .utf8)
+        
+        return stringJson?.data(using: .utf8, allowLossyConversion: false)!
+    }
+    
 }
 
 extension Transaction: DateUtil, CurrencyUtil {

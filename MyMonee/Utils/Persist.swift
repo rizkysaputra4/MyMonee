@@ -37,11 +37,11 @@ func encodeAndSaveToLocal(data: UserData) {
         return
     }
     let json = String(data: jsonData, encoding: String.Encoding.utf8)
-    print(json!)
+ 
     PersistData().saveValue(forKey: .mainData, value: json!, userID: "user")
 }
 
-func getAndDecodeFromLocal() -> UserData? {
+func getData() -> UserData? {
     
     let dataParsed: String? = PersistData().readValue(forKey: .mainData, userID: "user")
     
@@ -56,6 +56,6 @@ func getAndDecodeFromLocal() -> UserData? {
         print("error when convert data string to object")
         return nil
     }
-    
+        
     return dataConverted
 }

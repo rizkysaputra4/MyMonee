@@ -26,6 +26,11 @@ class TransactionDetailViewController: UIViewController {
         backButton.layer.borderWidth = 2
         backButton.layer.borderColor = #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
         loadData()
     }
     

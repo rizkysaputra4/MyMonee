@@ -34,6 +34,9 @@
 		FA42E2312650294B003977BA /* AddDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E2302650294B003977BA /* AddDreamViewController.xib */; };
 		FA42E23C26502DE1003977BA /* DreamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E23A26502DE1003977BA /* DreamDetailViewController.swift */; };
 		FA42E23D26502DE1003977BA /* DreamDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA42E23B26502DE1003977BA /* DreamDetailViewController.xib */; };
+		FA4AF9282656B9A90063F097 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF9272656B9A90063F097 /* Toast.swift */; };
+		FA4AF92F265722FA0063F097 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF92E265722FA0063F097 /* Loading.swift */; };
+		FA59C90F2656320A0016F359 /* TransactionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59C90E2656320A0016F359 /* TransactionNetworkService.swift */; };
 		FA7658212650F52F00A0942C /* EditDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76581F2650F52F00A0942C /* EditDreamViewController.swift */; };
 		FA7658252650F6A300A0942C /* EditDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7658242650F6A300A0942C /* EditDreamViewController.xib */; };
 		FA76582B2650FB3B00A0942C /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76582A2650FB3B00A0942C /* TransactionDetailViewController.swift */; };
@@ -103,6 +106,9 @@
 		FA42E2302650294B003977BA /* AddDreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddDreamViewController.xib; path = "/Users/RizkySaputra/Data/Code/MandiriAcademy/IOS/Final Project/MyMonee/MyMonee/ViewController/Dream/AddDream/AddDreamViewController.xib"; sourceTree = "<absolute>"; };
 		FA42E23A26502DE1003977BA /* DreamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamDetailViewController.swift; sourceTree = "<group>"; };
 		FA42E23B26502DE1003977BA /* DreamDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamDetailViewController.xib; sourceTree = "<group>"; };
+		FA4AF9272656B9A90063F097 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		FA4AF92E265722FA0063F097 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		FA59C90E2656320A0016F359 /* TransactionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionNetworkService.swift; sourceTree = "<group>"; };
 		FA76581F2650F52F00A0942C /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; };
 		FA7658242650F6A300A0942C /* EditDreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditDreamViewController.xib; path = MyMonee/ViewController/Dream/EditDream/EditDreamViewController.xib; sourceTree = SOURCE_ROOT; };
 		FA76582A2650FB3B00A0942C /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 		FA3C2945264B829D00F83AD5 /* MyMonee */ = {
 			isa = PBXGroup;
 			children = (
+				FA59C90D265631130016F359 /* Network */,
 				FAF5EFDC2653240700031270 /* Utils */,
 				FA975491264C26000014374F /* Fonts */,
 				FA3C296A264B94A000F83AD5 /* ViewController */,
@@ -227,6 +234,8 @@
 				FA42E21F264FCB2C003977BA /* DreamCell */,
 				FAE59E5F264D02A00002C18E /* TransactionTable */,
 				FAE59E59264CFE480002C18E /* TransactionCell */,
+				FA4AF9272656B9A90063F097 /* Toast.swift */,
+				FA4AF92E265722FA0063F097 /* Loading.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,6 +327,14 @@
 				FA42E23B26502DE1003977BA /* DreamDetailViewController.xib */,
 			);
 			path = DreamDetail;
+			sourceTree = "<group>";
+		};
+		FA59C90D265631130016F359 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FA59C90E2656320A0016F359 /* TransactionNetworkService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FA7658142650F4E400A0942C /* EditDream */ = {
@@ -555,7 +572,10 @@
 				FAF5EFDE2653241500031270 /* Utils.swift in Sources */,
 				FA3C2947264B829D00F83AD5 /* AppDelegate.swift in Sources */,
 				FA42E214264F7A05003977BA /* AddTransactionViewController.swift in Sources */,
+				FA4AF92F265722FA0063F097 /* Loading.swift in Sources */,
 				FA3C2949264B829D00F83AD5 /* SceneDelegate.swift in Sources */,
+				FA4AF9282656B9A90063F097 /* Toast.swift in Sources */,
+				FA59C90F2656320A0016F359 /* TransactionNetworkService.swift in Sources */,
 				FA42E23C26502DE1003977BA /* DreamDetailViewController.swift in Sources */,
 				FAE59E6F264D03690002C18E /* TransactionViewController.swift in Sources */,
 				FAE59E73264D13110002C18E /* Transaction.swift in Sources */,

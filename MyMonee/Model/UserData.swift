@@ -61,10 +61,12 @@ struct UserData: Codable {
         
         return "IDR \(stringSaved) / IDR \(stringTarget)"
     }
+    
 }
 
 var user = User(name: "Rizky Saputra", balance: 0)
 var transactions: [Transaction] = []
 var dream: [Dream] = []
 
-var userData = getAndDecodeFromLocal() ?? UserData(user: user, transactions: transactions, dreams: dream)
+var userData = getData() ?? UserData(user: user, transactions: transactions, dreams: dream)
+var isLoading = false

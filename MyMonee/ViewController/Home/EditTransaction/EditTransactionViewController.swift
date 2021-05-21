@@ -76,10 +76,13 @@ class EditTransactionViewController: UIViewController {
         transaction.date = userData.transactions[thisRow!].date
         transaction.uuid = userData.transactions[thisRow!].uuid
         
+        NetworkService().putTransaction(newTransaction: transaction) { () in
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            }
+        }
         userData.transactions[thisRow!] = self.transaction
         updateUserBalance(num: self.transaction.total!, type: self.transaction.type!)
-
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         
         encodeAndSaveToLocal(data: userData)
         self.navigationController?.popToRootViewController(animated: true)
@@ -91,21 +94,25 @@ class EditTransactionViewController: UIViewController {
         } else {
             userData.user.balance += Double(userData.transactions[thisRow!].total!)
         }
+        transaction.uuid = userData.transactions[thisRow!].uuid
+        NetworkService().deleteTransaction(newTransaction: self.transaction) { () in
+            DispatchQueue.main.async {
+                userData.transactions.remove(at: self.thisRow!)
+                
+                encodeAndSaveToLocal(data: userData)
+                let uiNib = HomeViewController(nibName: "HomeViewController", bundle: nil)
+                Toast.show(message: "Transaction deleted", controller: uiNib)
+                self.showToast(message: "Deleted", font: UIFont(name: "poppins", size: CGFloat(14.0))!)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                
+                self.navigationController?.popToRootViewController(animated: false)
+                
+            }
+        }
         
-        userData.transactions.remove(at: thisRow!)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        
-        encodeAndSaveToLocal(data: userData)
-        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func updateUserBalance(num: Double, type: TransactionType) {
-       
-//        let totalIncome = userData.countTotal(type: .income)
-//        let totalOutcome = userData.countTotal(type: .outcome)
-//
-//        userData.user.balance += totalIncome - totalOutcome
-        
         if type == .income {
             userData.user.balance += num
         } else if type == .outcome {
