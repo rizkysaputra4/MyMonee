@@ -24,12 +24,40 @@ class NetworkService {
                 let decoder = JSONDecoder()
                 
                 guard let transactionFetched = try? decoder.decode([Transaction].self, from: data) as [Transaction] else {
-                    print("error when fetchind transaction data")
+                    print("error when fetching transaction data")
                     return
                 }
                 
                 completion(transactionFetched)
             }
+        }
+        
+        task.resume()
+    }
+    
+    func loadTransactionById(transactionId: String, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> Void) {
+        isLoading = true
+        let component = URLComponents(string: "\(url)transaction/\(transactionId)")!
+
+        var request = URLRequest(url: component.url!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            if let data = data {
+                let decoder = JSONDecoder()
+                
+                guard let transactionFetched = try? decoder.decode(Transaction.self, from: data) as Transaction else {
+                    print("error when fetchind transaction data")
+                    return
+                }
+                
+                completion(transactionFetched, nil)
+                return
+            }
+            
+            completion(nil, error?.localizedDescription ?? "Unknown Error")
+            
         }
         
         task.resume()

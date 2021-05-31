@@ -16,6 +16,7 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var totalInput: UITextField!
     
     var transaction: Transaction = Transaction()
+    weak var toastDelegate: ToastDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,7 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func savePressed(_ sender: Any) {
+        self.startLoading()
         transaction.description = descriptionInput.text
         transaction.total = Double(totalInput.text!) ?? 0
         transaction.date = Date()
@@ -89,10 +91,15 @@ class AddTransactionViewController: UIViewController, UITextViewDelegate {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
                 
                 encodeAndSaveToLocal(data: userData)
+                
+                self.toastDelegate?.displayToast(message: "Transaction Saved")
+                
+                self.dismiss()
+                self.stopLoading()
+                
             }
         }
-        
-        dismiss()
+       
     }
     
     func dismiss() {

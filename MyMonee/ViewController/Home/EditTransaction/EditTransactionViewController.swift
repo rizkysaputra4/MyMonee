@@ -19,6 +19,7 @@ class EditTransactionViewController: UIViewController {
     
     var transaction: Transaction = Transaction()
     var thisRow: Int?
+    weak var toastDelegate: ToastDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,24 +72,30 @@ class EditTransactionViewController: UIViewController {
     }
     
     @IBAction func savePressed(_ sender: Any) {
+        self.startLoading()
         self.transaction.description = descriptionInput.text
         self.transaction.total = Double(totalInput.text!) ?? 0
         transaction.date = userData.transactions[thisRow!].date
         transaction.uuid = userData.transactions[thisRow!].uuid
-        
+        userData.transactions[thisRow!] = self.transaction
         NetworkService().putTransaction(newTransaction: transaction) { () in
             DispatchQueue.main.async {
+                self.updateUserBalance(num: self.transaction.total!, type: self.transaction.type!)
+                
+                encodeAndSaveToLocal(data: userData)
+                
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                self.toastDelegate?.displayToast(message: "Transaction Updated")
+                
+                self.navigationController?.popToRootViewController(animated: true)
+                self.stopLoading()
             }
         }
-        userData.transactions[thisRow!] = self.transaction
-        updateUserBalance(num: self.transaction.total!, type: self.transaction.type!)
         
-        encodeAndSaveToLocal(data: userData)
-        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func deletePressed(_ sender: Any) {
+        self.startLoading()
         if transaction.type == .income {
             userData.user.balance -= Double(userData.transactions[thisRow!].total!)
         } else {
@@ -100,13 +107,11 @@ class EditTransactionViewController: UIViewController {
                 userData.transactions.remove(at: self.thisRow!)
                 
                 encodeAndSaveToLocal(data: userData)
-                let uiNib = HomeViewController(nibName: "HomeViewController", bundle: nil)
-                Toast.show(message: "Transaction deleted", controller: uiNib)
-                self.showToast(message: "Deleted", font: UIFont(name: "poppins", size: CGFloat(14.0))!)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
                 
-                self.navigationController?.popToRootViewController(animated: false)
-                
+                self.toastDelegate?.displayToast(message: "Transaction Deleted")
+                self.navigationController?.popToRootViewController(animated: true)
+                self.stopLoading()
             }
         }
         
@@ -120,19 +125,23 @@ class EditTransactionViewController: UIViewController {
         }
     }
     
+//    incomeButton.centerImageAndButton(CGFloat(10), imageOnTop: true)
+//    incomeButton.radiusBorder(borderWidth: 2, borderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+//    incomeButton.dropShadow()
+    
     func loadDefaultValue() {
         let userTransaction = userData.transactions
         descriptionInput.text = userTransaction[thisRow!].description
         let userTransactionInString = String(userTransaction[thisRow!].total!)
         
         totalInput.text = numOnly(character: String(userTransactionInString.dropLast()))
-        print(userTransaction[thisRow!].type == .income, userTransaction[thisRow!].type == .outcome)
+
         if userTransaction[thisRow!].type == .income {
-           loadViewStyle()
+           
             transaction.type = .income
             incomeButton.radiusBorder(borderWidth: 4, borderColor: UIColor.init(named: "main")?.cgColor ?? #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))
         } else if userTransaction[thisRow!].type == .outcome {
-            loadViewStyle()
+           
             transaction.type = .outcome
             outcomeButton.radiusBorder(borderWidth: 4, borderColor: UIColor.init(named: "main")?.cgColor ?? #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
         }

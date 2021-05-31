@@ -19,13 +19,16 @@ class TransactionDetailViewController: UIViewController {
     @IBOutlet weak var editTransactionBtn: UIButton!
     
     var thisRow: Int?
+    var transaction: Transaction = Transaction()
+    let child = SpinnerViewController()
+    weak var toastDelegate: ToastDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backButton.layer.borderWidth = 2
-        backButton.layer.borderColor = #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1)
-        // Do any additional setup after loading the view.
+        loadStyle()
+        self.startLoading()
+        loadTransactionData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,19 +44,41 @@ class TransactionDetailViewController: UIViewController {
     
     @IBAction func editPressed(_ sender: Any) {
         let editTransactionPage = EditTransactionViewController(nibName: "EditTransactionViewController", bundle: nil)
+        editTransactionPage.toastDelegate = self.toastDelegate
         editTransactionPage.thisRow = self.thisRow
         self.navigationController?.pushViewController(editTransactionPage, animated: true)
     }
     
+    func loadTransactionData() {
+        NetworkService().loadTransactionById(transactionId: userData.transactions[thisRow!].uuid!, completion: { transactionFetched, error  in
+            DispatchQueue.main.async {
+                
+                guard let data = transactionFetched else {
+                    self.displayToast(message: String(error!) )
+                    return
+                }
+                
+                self.transaction = data
+                self.reloadInputViews()
+                self.stopLoading()
+            }
+        })
+    }
+    
     func loadData() {
-        self.descriptionLabel.text = userData.transactions[thisRow!].description
+        self.descriptionLabel.text = self.transaction.description
         loadArrowIcon()
-        transactionId.text = userData.transactions[thisRow!].uuid
-        transactionDate.text = userData.transactions[thisRow!].dateToString()
+        transactionId.text = self.transaction.uuid
+        transactionDate.text = self.transaction.dateToString()
+    }
+    
+    func loadStyle() {
+        backButton.layer.borderWidth = 2
+        backButton.layer.borderColor = #colorLiteral(red: 0.3137254902, green: 0.4117647059, blue: 0.7215686275, alpha: 1)
     }
     
     func loadArrowIcon() {
-        let total = userData.transactions[thisRow!].currencyToString()
+        let total = self.transaction.currencyToString()
         if userData.transactions[thisRow!].type == .income {
             transactionTypeView.layer.backgroundColor = #colorLiteral(red: 0.1294117647, green: 0.5882352941, blue: 0.3254901961, alpha: 0.2)
             transactionTypeImg.image = UIImage(named: "arrow_upward_24px")

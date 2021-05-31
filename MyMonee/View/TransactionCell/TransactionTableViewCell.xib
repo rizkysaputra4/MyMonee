@@ -45,6 +45,10 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_downward_24px" translatesAutoresizingMaskIntoConstraints="NO" id="Erm-kE-K00">
                                 <rect key="frame" x="10" y="10" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="KV7-9b-aSt"/>
+                                    <constraint firstAttribute="height" constant="16" id="eaF-XI-yPm"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>

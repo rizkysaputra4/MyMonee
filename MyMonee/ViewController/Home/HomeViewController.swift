@@ -25,37 +25,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true
-        startLoading()
-        NetworkService().loadTransaction { (transactionLoaded) in
-            DispatchQueue.main.async {
-                userData.transactions = transactionLoaded
-                self.transactionTable.reloadData()
-//                Toast.show(message: "loaded", controller: self)
-                self.stopLoading()
-            }
-        }
+        self.startLoading()
+        self.loadTransactionDataFromNetwork()
         self.loadData()
         self.loadStyle()
         self.registerHomeLoadNotif()
         self.loadEmptyTable()
         self.loadTableView()
-    }
-    
-    func startLoading() {
-        self.tabBarController?.tabBar.isHidden = true
-        addChild(child)
-        child.view.frame = view.frame
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
-    }
-    
-    func stopLoading() {
-        child.willMove(toParent: nil)
-        child.view.removeFromSuperview()
-        child.removeFromParent()
-        self.tabBarController?.tabBar.isHidden = false
-      
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,6 +56,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func registerHomeLoadNotif() {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "load"), object: nil)
+    }
+    
+    func loadTransactionDataFromNetwork() {
+        NetworkService().loadTransaction { (transactionLoaded) in
+            DispatchQueue.main.async {
+                userData.transactions = transactionLoaded
+                self.transactionTable.reloadData()
+                self.stopLoading()
+            }
+        }
     }
 
     @objc func reloadData() {
@@ -132,16 +118,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func pushToAddNewPage() {
         let newTransactionPage = AddTransactionViewController(nibName: "AddTransactionViewController", bundle: nil)
         newTransactionPage.hidesBottomBarWhenPushed = true
+        newTransactionPage.toastDelegate = self
         self.navigationController?.pushViewController(newTransactionPage, animated: true)
     }
     
     func loadStyle() {
+        self.navigationController?.isNavigationBarHidden = true
         saldoView.layer.cornerRadius = 8
         self.transactionTableView.separatorStyle = .none
     }
     
     func loadData() {
-        
         incomeLabel.text = userData.countTotalInString(type: .income)
         outcomeLabel.text = userData.countTotalInString(type: .outcome)
         balanceLabel.text = userData.user.currencyToString()
@@ -183,10 +170,11 @@ extension HomeViewController: CellDelegate, Navigations {
     
     func toDetailPage(thisRow: Int) {
         
-        let dreamDetailPage = TransactionDetailViewController(nibName: "TransactionDetailViewController", bundle: nil)
-        dreamDetailPage.thisRow = thisRow
-        dreamDetailPage.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(dreamDetailPage, animated: true)
+        let transactionDetailPage = TransactionDetailViewController(nibName: "TransactionDetailViewController", bundle: nil)
+        transactionDetailPage.thisRow = thisRow
+        transactionDetailPage.toastDelegate = self
+        transactionDetailPage.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(transactionDetailPage, animated: true)
     }
     
 }
