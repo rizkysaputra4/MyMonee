@@ -8,6 +8,11 @@ This app use MVC as its design pattern and using iOS 14.4 as minimum SDK.
 
 To import this project you only need to clone this repository then open MyMonee.xcodeproj using XCode
 
+Make sure you already install swiftlint on your computer before run the app from XCode, or you can disable it by removing the script that run swiftlint from 
+```
+MyMonee > Build Phase > Run Script
+```
+
 ## Feature
 
 Some feature and scene in this app:
